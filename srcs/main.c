@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 22:23:02 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 22:53:00 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int ac, char **av)
 {
-	t_push_swap	vars;
-
 	(void) ac;
 	(void) av;
 	test_01();
