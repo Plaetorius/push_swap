@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:10:42 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 18:56:36 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 20:30:34 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,14 @@ void	ft_free_circular_nodes(t_node *node)
 
 	if (!node)
 		return ;
-	
+	ptr = node->next;
+	while (ptr != node)
+	{
+		tmp = ptr;
+		ptr = ptr->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	free(node);
+	node = NULL;
 }
