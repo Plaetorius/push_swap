@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 18:39:08 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 22:23:02 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	main(int ac, char **av)
 
 	(void) ac;
 	(void) av;
-	// test_01();
-	// test_02();
-	// test_03();
-	// test_04();
-	// test_05();
-	// test_06();
-	// test_07();
+	test_01();
+	test_02();
+	test_03();
+	test_04();
+	test_05();
+	test_06();
+	test_07();
 	// test_08();
 	// test_09();
 	// test_10();

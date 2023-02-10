@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_functions.c                                  :+:      :+:    :+:   */
+/*   nodes_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:10:42 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 20:30:34 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 22:28:40 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*ft_node_new(int val, t_node *next, t_node *prev, int ind)
 {
 	t_node	*elem;
 
-	elem = malloc(sizeof(t_stack));
+	elem = malloc(sizeof(t_node));
 	if (!elem)
 		return (NULL);
 	elem->val = val;
@@ -44,4 +44,20 @@ void	ft_free_circular_nodes(t_node *node)
 	}
 	free(node);
 	node = NULL;
+}
+
+void	ft_node_endings(t_node *elem, t_node *next, t_node *prev)
+{
+	if (!elem)
+		return ;
+	if (next)
+	{
+		elem->next = next;
+		next->prev = elem;
+	}
+	if (prev)
+	{
+		elem->prev = prev;
+		prev->next = elem;
+	}
 }

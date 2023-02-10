@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 18:51:09 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 2 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		test_27();
 void		test_28();
 void		stack_burner_ind(t_stack *stack);
 
-void		stack_burner(t_stack *stack);
+void		stack_burner(t_node *node);
 
 /*	Parsing	 */
 int			*parsing(int ac, char **av);
@@ -55,13 +55,12 @@ int			*parsing(int ac, char **av);
 long		atoi_def(const char *str);
 
 /* Converting */
-int			convert(int *table, size_t len, t_push_swap *vars);
+t_node		*convert(int *table, size_t len, t_push_swap *vars);
 
 /* Stack Functions */
 t_node		*ft_node_new(int val, t_node *next, t_node *prev, int ind);
-void		ft_stack_endings(t_stack *elem, t_stack *next, t_stack *prev);
+void		ft_node_endings(t_node *elem, t_node *next, t_node *prev);
 void		ft_free_circular_nodes(t_node *node);
-void		ft_top(t_stack **stack, t_stack *elem, size_t *len);
 void		ft_free_stack(t_instruct *stack);
 
 /* Instructions 1 */
@@ -78,20 +77,6 @@ t_instruct	*new_instruct(int val, t_instruct *next);
 int			instructions_destacker(t_instruct *first, t_instruct *second,
 			char stk);
 t_instruct	*instructions_adder(int instruction, int number, t_instruct *stack);
-
-/* Do Instructions */
-int			do_push(t_stack **receiver, t_stack **sender, size_t times,
-			t_push_swap *vars);
-int			do_rotate(t_stack **head, size_t times, t_push_swap *vars);
-int			do_rev_rotate(t_stack **head, size_t times, t_push_swap *vars);
-
-/* Sorting Functions */
-int			shortest_rotation_to_ind(t_stack **head, size_t ind, char stk,
-			t_push_swap *vars);
-int			clear_stack_a(t_stack **head_a, t_stack **head_b,size_t len_a,
-			t_push_swap *vars);
-int			send_back_to_a(t_stack **head_a, t_stack **head_b, size_t len_a,
-			t_push_swap *vars);
 
 
 #endif

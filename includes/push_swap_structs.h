@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:40:41 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 15:09:06 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 21:11:10 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct			s_node
 typedef struct			s_stack
 {
 	t_node				*head;
-	size_t				size;
+	size_t				len;
 }	 					t_stack;
 
 typedef struct			s_instruct

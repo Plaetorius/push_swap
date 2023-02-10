@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/10 18:42:32 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/10 20:49:08 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					parsing	\
 					atoi_def	\
 					converting	\
-					stack_functions \
+					nodes_functions \
 					))
 INCLUDES		= -Iincludes
 LIBFTDIR		= libft
