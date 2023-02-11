@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:40:27 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 14:59:56 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/10 23:12:29 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include "libft.h"
+# ifndef SPLITS
+#  define SPLITS 3
+# endif
 
 enum e_instructs
 {

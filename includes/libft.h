@@ -23,9 +23,15 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-# define LIST_PH "cspdiuxX%"
-# define HEXA_LOW "0123456789abcdef"
-# define HEXA_UP "0123456789ABCDEF"
+# ifndef LIST_PH
+#  define LIST_PH "cspdiuxX%"
+# endif
+# ifndef HEXA_LOW
+#  define HEXA_LOW "0123456789abcdef"
+# endif
+# ifndef HEXA_UP
+#  define HEXA_UP "0123456789ABCDEF"
+# endif
 
 typedef struct s_list
 {
