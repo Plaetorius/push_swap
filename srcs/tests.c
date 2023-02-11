@@ -60,7 +60,7 @@ void	tab_checker(size_t len, int *correct, t_node *node, int *passed)
 	{
 		if (VERBOSE)
 		{
-			ft_printf("correct[%d] =	%d	:	%d	= stack for ind %d\n", i, correct[i], node->val, node->ind);
+			ft_printf("correct[%d] =	%d	:	%d	= stack for ind %d\n", node->ind, correct[i], node->val, node->ind);
 		}
 		if (correct[i] != node->val)
 			*passed = 0;
@@ -249,11 +249,11 @@ void test_07()
 	int			correct[5];
 
 	ft_printf("=====Test 07=====\n");
-	ft_printf("Testing Stack Creation using %s15 30 76 0 -1%s entry...", YEL, RES);
+	ft_printf("Testing Stack Creation using %s5263566 30 -356274 0 -1%s entry...", YEL, RES);
 	passed = 1;
 	i = 0;
 	ac = 6;
-	entry = ft_strdup("push_swap 15 30 76 0 -1");
+	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
 	av = ft_split(entry, ' ');
 	table = parsing(ac, av);
 	// ft_print_int_tab(table, 5);
@@ -264,14 +264,14 @@ void test_07()
 	vars.stack_a = &stack;
 	stack = *vars.stack_a;
 	node = stack.head;
-	correct[0] = -1;
-	correct[1] = 0;
-	correct[2] = 15;
-	correct[3] = 30;
-	correct[4] = 76;
+	correct[0] = 5263566;
+	correct[4] = -1;
+	correct[3] = 0;
+	correct[1] = 30;
+	correct[2] = -356274;
 	if (VERBOSE)
 		ft_printf("\n");
-	tab_checker(ac- 1, correct, node, &passed);
+	tab_checker(ac - 1, correct, node, &passed);
 	if (VERBOSE)
 		stack_burner(node);
 	success(passed);
