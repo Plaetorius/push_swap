@@ -531,7 +531,6 @@ void test_12()
 	ft_free_stack(vars.insts);
 }
 
-
 void test_13()
 {
 	char		*entry;
@@ -566,6 +565,100 @@ void test_13()
 	if (VERBOSE)
 		ft_printf("\n");
 	rotate(&stack, &vars);
+	tab_checker(ac - 1, correct, vars.stack_a->head, &passed);
+	if (VERBOSE)
+		stack_burner(vars.stack_a->head);
+	success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(vars.stack_a->head);
+	ft_free_stack(vars.insts);
+}
+
+void test_14()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		stack;
+	t_node		*node;
+	t_push_swap	vars;
+	int			i;
+	int			correct[5];
+
+	ft_printf("=====Test 14=====\n");
+	ft_printf("Testing Rev Rotate using %s5263566 30 -356274 0 -1%s entry...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 6;
+	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	// ft_print_int_tab(table, 5);
+	stack.len = ac - 1;
+	vars.stack_a = &stack;
+	vars.insts = NULL;
+	node = convert(table, stack.len, &vars);
+	stack.head = node;
+	vars.stack_a = &stack;
+	stack = *vars.stack_a;
+	node = stack.head;
+	correct[1] = 5263566;
+	correct[0] = -1;
+	correct[4] = 0;
+	correct[2] = 30;
+	correct[3] = -356274;
+	if (VERBOSE)
+		ft_printf("\n");
+	rev_rotate(&stack, &vars);
+	tab_checker(ac - 1, correct, vars.stack_a->head, &passed);
+	if (VERBOSE)
+		stack_burner(vars.stack_a->head);
+	success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(vars.stack_a->head);
+	ft_free_stack(vars.insts);
+}
+
+void test_15()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		stack;
+	t_node		*node;
+	t_push_swap	vars;
+	int			i;
+	int			correct[5];
+
+	ft_printf("=====Test 15=====\n");
+	ft_printf("Testing Rev Rotate using %s5263566%s entry...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 2;
+	entry = ft_strdup("push_swap 5263566");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	// ft_print_int_tab(table, 5);
+	stack.len = ac - 1;
+	vars.stack_a = &stack;
+	vars.insts = NULL;
+	node = convert(table, stack.len, &vars);
+	stack.head = node;
+	vars.stack_a = &stack;
+	stack = *vars.stack_a;
+	node = stack.head;
+	correct[0] = 5263566;
+	if (VERBOSE)
+		ft_printf("\n");
+	rev_rotate(&stack, &vars);
 	tab_checker(ac - 1, correct, vars.stack_a->head, &passed);
 	if (VERBOSE)
 		stack_burner(vars.stack_a->head);

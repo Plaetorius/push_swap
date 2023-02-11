@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:07:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 15:55:36 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:02:35 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ t_node	*convert(int *tab, size_t len, t_push_swap *vars)
 	vars->stack_a->len = 1;
 	vars->stack_a->head = node;
 	if (len == 1)
+	{
+		node->ind = 0;
 		return (ft_node_endings(node, node, node), node);
+	}
 	return (ind_stack(initialize(len, tab, node, vars), tab,
 		vars->stack_a->len));
 }
