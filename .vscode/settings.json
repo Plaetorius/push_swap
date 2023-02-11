@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"push_swap_structs.h": "c"
+		"push_swap_structs.h": "c",
+		"push_swap.h": "c",
+		"push_swap_protos.h": "c"
 	}
 }

@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   instruction_functions.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 17:22:42 by tgernez          ###   ########.fr       */
+/*   Created: 2023/02/11 17:44:21 by tgernez           #+#    #+#             */
+/*   Updated: 2023/02/11 17:56:46 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_instruct	*new_instruct(int val, t_instruct *next)
 {
-	(void) ac;
-	(void) av;
-	test_01();
-	test_02();
-	test_03();
-	test_04();
-	test_05();
-	test_06();
-	test_07();
-	test_08();
-	// test_09();
-	// test_10();
-	// test_11();
-	// test_12();
-	// test_13();
-	// test_14();
-	// test_15();
-	// test_16();
-	// test_17();
-	// test_18();
-	// test_19();
-	// test_20();
-	// test_21();
-	return (EXIT_SUCCESS);
+	t_instruct	*instruct;
+
+	instruct = malloc(sizeof(t_instruct));
+	if (!instruct)
+		return (NULL);
+	instruct->val = val;
+	instruct->next = next;
+	return (instruct);
 }
+
+void	stack_association(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
+{
+	vars->stack_a = stack_a;
+	vars->stack_b = stack_b;
+}
+

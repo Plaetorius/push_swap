@@ -65,8 +65,7 @@ void		ft_free_stack(t_instruct *stack);
 
 /* Instructions 1 */
 int			swap(t_stack **head, t_push_swap *vars);
-int			push(t_stack **receiver, t_stack **sender, char from_stk,
-			t_push_swap *vars);
+int			push(t_stack *receiver, t_stack *sender, t_push_swap *vars);
 
 /* Instructions 2 */
 int			rotate(t_stack **head, t_push_swap *vars);
@@ -77,6 +76,7 @@ t_instruct	*new_instruct(int val, t_instruct *next);
 int			instructions_destacker(t_instruct *first, t_instruct *second,
 			char stk);
 t_instruct	*instructions_adder(int instruction, int number, t_instruct *stack);
-
+void		stack_association(t_stack *stack_a, t_stack *stack_b,
+			t_push_swap *vars);
 
 #endif

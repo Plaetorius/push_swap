@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:40:27 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 23:12:29 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/11 17:4 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@
 
 enum e_instructs
 {
-	SWAP,
-	PUSH,
-	ROTATE,
-	REV_ROTATE,
+	SWAP_A,
+	PUSH_A,
+	ROTATE_A,
+	REV_ROTATE_A,
+	SWAP_B,
+	PUSH_B,
+	ROTATE_B,
+	REV_ROTATE_B,
+	SS,
+	RR,
+	RRR
 };
 #endif

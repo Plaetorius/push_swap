@@ -280,3 +280,60 @@ void test_07()
 	free(entry);
 	ft_free_circular_nodes(node);
 }
+
+
+void test_08()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		sender;
+	t_stack		receiver;
+	t_node		*node;
+	t_push_swap	vars;
+	t_instruct	*instructs;
+	int			i;
+	int			correct[5];
+
+	ft_printf("=====Test 08=====\n");
+	ft_printf("Testing Push %s56 0 -1%s entry on NULL stack...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 4;
+	entry = ft_strdup("push_swap 56 0 -1");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	// ft_print_int_tab(table, 5);
+	sender.len = ac - 1;
+	receiver.len = 0;
+	instructs = NULL;
+	vars.insts = instructs;
+	vars.stack_a = &sender;
+	node = convert(table, sender.len, &vars);
+	sender.head = node;
+	receiver.head = NULL;
+	vars.stack_a = &sender;
+	vars.stack_b = &receiver;
+	sender = *vars.stack_a;
+	node = sender.head;
+	correct[0] = 0;
+	correct[1] = 1;
+	push(&receiver, &sender, &vars);
+	// if (VERBOSE)
+	// 	ft_printf("\n");
+	// tab_checker(sender.len, correct, sender.head, &passed);
+	if (VERBOSE)
+	{
+		stack_burner(sender.head);
+		stack_burner(receiver.head);
+	}
+	// success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(sender.head);
+	ft_free_circular_nodes(receiver.head);
+	ft_free_stack(vars.insts);
+}

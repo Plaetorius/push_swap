@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:10:42 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 15:52:13 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/11 17:57:33 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_node	*ft_node_new(int val, t_node *next, t_node *prev, int ind)
 
 void	ft_free_circular_nodes(t_node *node)
 {
-	t_node *begin;
 	t_node *tmp;
 	t_node *ptr;
 
@@ -60,4 +59,22 @@ void	ft_node_endings(t_node *elem, t_node *next, t_node *prev)
 		elem->prev = prev;
 		prev->next = elem;
 	}
+}
+
+void	ft_free_stack(t_instruct *stack)
+{
+	t_instruct	*ptr;
+	t_instruct	*tmp;
+
+	if (!stack)
+		return ;
+	ptr = stack;
+	while (ptr != NULL)
+	{
+		tmp = ptr;
+		ptr = ptr->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	stack = NULL;
 }
