@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:41:12 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:59:00 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	rotate(t_stack *stack, t_push_swap *vars)
 		return (1);
 	if (stack->len == 1)
 		return (0);
-	stack->head = stack->head->prev;
+	stack->head = stack->head->next;
 	if (vars->stack_a == stack)
 		vars->insts = new_instruct(ROTATE_A, vars->insts);
 	else
@@ -33,7 +33,7 @@ int	rev_rotate(t_stack *stack, t_push_swap *vars)
 
 	if (stack->len == 1)
 		return (0);
-	stack->head = stack->head->next;
+	stack->head = stack->head->prev;
 	if (vars->stack_a == stack)
 		vars->insts = new_instruct(REV_ROTATE_A, vars->insts);
 	else
