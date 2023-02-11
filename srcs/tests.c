@@ -298,14 +298,13 @@ void test_08()
 	int			correct[5];
 
 	ft_printf("=====Test 08=====\n");
-	ft_printf("Testing Push %s56 0 -1%s entry on NULL stack...", YEL, RES);
+	ft_printf("Testing Push %s-1 0 56%s entry on NULL stack...", YEL, RES);
 	passed = 1;
 	i = 0;
 	ac = 4;
-	entry = ft_strdup("push_swap 56 0 -1");
+	entry = ft_strdup("push_swap -1 0 56");
 	av = ft_split(entry, ' ');
 	table = parsing(ac, av);
-	// ft_print_int_tab(table, 5);
 	sender.len = ac - 1;
 	receiver.len = 0;
 	instructs = NULL;
@@ -321,15 +320,160 @@ void test_08()
 	correct[0] = 0;
 	correct[1] = 1;
 	push(&receiver, &sender, &vars);
-	// if (VERBOSE)
-	// 	ft_printf("\n");
-	// tab_checker(sender.len, correct, sender.head, &passed);
 	if (VERBOSE)
 	{
 		stack_burner(sender.head);
 		stack_burner(receiver.head);
 	}
-	// success(passed);
+	success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(sender.head);
+	ft_free_circular_nodes(receiver.head);
+	ft_free_stack(vars.insts);
+}
+
+void test_09()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		stack;
+	t_node		*node;
+	t_push_swap	vars;
+	int			i;
+	int			correct[5];
+
+	ft_printf("=====Test 09=====\n");
+	ft_printf("Testing Swap using %s5263566 30%s entry...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 3;
+	entry = ft_strdup("push_swap 5263566 30");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	// ft_print_int_tab(table, 5);
+	stack.len = ac - 1;
+	vars.stack_a = &stack;
+	vars.insts = NULL;
+	node = convert(table, stack.len, &vars);
+	stack.head = node;
+	vars.stack_a = &stack;
+	stack = *vars.stack_a;
+	node = stack.head;
+	correct[0] = 30;
+	correct[1] = 5263566;
+	if (VERBOSE)
+		ft_printf("\n");
+	swap(&stack, &vars);
+	tab_checker(ac - 1, correct, vars.stack_a->head, &passed);
+	if (VERBOSE)
+		stack_burner(vars.stack_a->head);
+	success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(vars.stack_a->head);
+	ft_free_stack(vars.insts);
+}
+
+void test_10()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		stack;
+	t_node		*node;
+	t_push_swap	vars;
+	int			i;
+	int			correct[5];
+
+	ft_printf("=====Test 10=====\n");
+	ft_printf("Testing Swap using %s5263566 30 -356274 0 -1%s entry...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 6;
+	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	// ft_print_int_tab(table, 5);
+	stack.len = ac - 1;
+	vars.stack_a = &stack;
+	vars.insts = NULL;
+	node = convert(table, stack.len, &vars);
+	stack.head = node;
+	vars.stack_a = &stack;
+	stack = *vars.stack_a;
+	node = stack.head;
+	correct[1] = 5263566;
+	correct[4] = -1;
+	correct[3] = 0;
+	correct[0] = 30;
+	correct[2] = -356274;
+	if (VERBOSE)
+		ft_printf("\n");
+	swap(&stack, &vars);
+	tab_checker(ac - 1, correct, vars.stack_a->head, &passed);
+	if (VERBOSE)
+		stack_burner(vars.stack_a->head);
+	success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(vars.stack_a->head);
+	ft_free_stack(vars.insts);
+}
+
+void test_11()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		sender;
+	t_stack		receiver;
+	t_node		*node;
+	t_push_swap	vars;
+	t_instruct	*instructs;
+	int			i;
+	int			correct[5];
+
+	ft_printf("=====Test 11=====\n");
+	ft_printf("Testing Push %s-1%s entry on NULL stack...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 2;
+	entry = ft_strdup("push_swap -1");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	sender.len = ac - 1;
+	receiver.len = 0;
+	instructs = NULL;
+	vars.insts = instructs;
+	vars.stack_a = &sender;
+	node = convert(table, sender.len, &vars);
+	sender.head = node;
+	receiver.head = NULL;
+	vars.stack_a = &sender;
+	vars.stack_b = &receiver;
+	sender = *vars.stack_a;
+	node = sender.head;
+	correct[0] = 0;
+	correct[1] = 1;
+	push(&receiver, &sender, &vars);
+	if (VERBOSE)
+	{
+		ft_printf("\nSENDER ADDR %p /SENDER ADDR\n", sender.head);
+		ft_printf("SENDER LEN %d /SENDER LEN\n", sender.len);
+		stack_burner(receiver.head);
+	}
+	success(passed);
 	free(table);
 	ft_free_strs(av);
 	free(entry);

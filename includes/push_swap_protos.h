@@ -64,12 +64,12 @@ void		ft_free_circular_nodes(t_node *node);
 void		ft_free_stack(t_instruct *stack);
 
 /* Instructions 1 */
-int			swap(t_stack **head, t_push_swap *vars);
+int			swap(t_stack *head, t_push_swap *vars);
 int			push(t_stack *receiver, t_stack *sender, t_push_swap *vars);
 
 /* Instructions 2 */
-int			rotate(t_stack **head, t_push_swap *vars);
-int			rev_rotate(t_stack **head, t_push_swap *vars);
+int			rotate(t_stack *head, t_push_swap *vars);
+int			rev_rotate(t_stack *head, t_push_swap *vars);
 
 /* Instruction Functions */
 t_instruct	*new_instruct(int val, t_instruct *next);

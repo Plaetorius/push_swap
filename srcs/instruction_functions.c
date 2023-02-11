@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:44:21 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 17:56:46 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:05:30 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ t_instruct	*new_instruct(int val, t_instruct *next)
 
 void	stack_association(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
-	vars->stack_a = stack_a;
-	vars->stack_b = stack_b;
+	if (!vars)
+		return ;
+	if (stack_a)
+		vars->stack_a = stack_a;
+	if (stack_b)
+		vars->stack_b = stack_b;
 }
 

@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/11 17:47:27 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/11 18:29:49 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					parsing	\
 					atoi_def	\
 					converting	\
-					instructions	\
+					instructions_1	\
+					instructions_2	\
 					nodes_functions \
 					instruction_functions	\
 					))
