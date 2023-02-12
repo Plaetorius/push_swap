@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   do_instructions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 21:00:02 by tgernez          ###   ########.fr       */
+/*   Created: 2023/02/12 19:31:13 by tgernez           #+#    #+#             */
+/*   Updated: 2023/02/12 19:33:35 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	do_rotate(t_stack *stack, int times, t_push_swap *vars)
 {
-	(void) ac;
-	(void) av;
-	test_01();
-	test_02();
-	test_03();
-	test_04();
-	test_05();
-	test_06();
-	test_07();
-	test_08();
-	test_09();
-	test_10();
-	test_11();
-	test_12();
-	test_13();
-	test_14();
-	test_15();
-	test_16();
-	test_17();
-	test_18();
-	// test_19();
-	// test_20();
-	// test_21();
-	return (EXIT_SUCCESS);
+	int	i;
+
+	i = 0;
+	while (i < times)
+	{
+		if (rotate(stack, vars))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	do_rev_rotate(t_stack *stack, int times, t_push_swap *vars)
+{
+	int	i;
+
+	i = 0;
+	while (i < times)
+	{
+		if (rev_rotate(stack, vars))
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -6,14 +6,13 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 16:24:07 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/12 21:13:52 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, int sort_nb,
-	t_push_swap *vars)
+int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
 	int 	i;
 	int		val;
@@ -21,6 +20,8 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, int sort_nb,
 
 	len_a = stack_a->len;
 	i = 0;
+	// if (len_a <= 3)
+	// 	return (0);
 	while (i < len_a)
 	{
 		if (stack_a->head->ind < len_a / SPLITS)
@@ -37,7 +38,32 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, int sort_nb,
 	return (0);
 }
 
-// int	actualize_ind(t_stack *stack, t_push_swap *vars)
-// {
-	
-// }
+int sort_three(t_stack *stack, t_push_swap *vars)
+{
+	(void)stack;
+	(void)vars;
+	return (0);
+}
+
+
+int shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
+{
+	size_t	travelled;
+	t_node	*node;
+	int		var;
+
+	node = stack->head;
+	travelled = 0;
+	while (travelled < stack->len && node->ind != ind)
+	{
+		travelled++;
+		node = node->next;
+	}
+	if (travelled < stack->len - travelled)
+		var = do_rotate(stack, travelled, vars);
+	else
+		var = do_rev_rotate(stack, stack->len - travelled, vars);
+	if (var == 1)
+		return (1);
+	return (0);
+}

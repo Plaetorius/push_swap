@@ -64,17 +64,19 @@ void		ft_free_circular_nodes(t_node *node);
 void		ft_free_stack(t_instruct *stack);
 
 /* Instructions 1 */
-int			swap(t_stack *head, t_push_swap *vars);
+int			swap(t_stack *stack, t_push_swap *vars);
 int			push(t_stack *receiver, t_stack *sender, t_push_swap *vars);
 
 /* Instructions 2 */
-int			rotate(t_stack *head, t_push_swap *vars);
-int			rev_rotate(t_stack *head, t_push_swap *vars);
+int			rotate(t_stack *stack, t_push_swap *vars);
+int			rev_rotate(t_stack *stack, t_push_swap *vars);
 int			push_bottom(t_stack *receiver, t_stack *sender, t_push_swap *vars);
 
 /* Sorting Functions */
-int			push_elements_in_b(t_stack *stack_a, t_stack *stack_b, int sort_nb,
+int			push_elements_in_b(t_stack *stack_a, t_stack *stack_b,
 			t_push_swap *vars);
+int			sort_three(t_stack *stack, t_push_swap *vars);
+int			shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars);
 
 /* Instruction Functions */
 t_instruct	*new_instruct(int val, t_instruct *next);
@@ -83,5 +85,15 @@ int			instructions_destacker(t_instruct *first, t_instruct *second,
 t_instruct	*instructions_adder(int instruction, int number, t_instruct *stack);
 void		stack_association(t_stack *stack_a, t_stack *stack_b,
 			t_push_swap *vars);
+
+/* Do Instructions */
+int	do_rotate(t_stack *stack, int times, t_push_swap *vars);
+int	do_rev_rotate(t_stack *stack, int times, t_push_swap *vars);
+
+/* Phases */
+int			phase_1();
+int			phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
+int			phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
+
 
 #endif

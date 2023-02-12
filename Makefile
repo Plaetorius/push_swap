@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/12 13:03:24 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/12 19:34:05 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					instructions_1	\
 					instructions_2	\
 					nodes_functions \
+					do_instructions	\
 					sorting_functions	\
 					instruction_functions	\
 					))

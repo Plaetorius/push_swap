@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:07:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 15:46:42 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/12 18:34:03 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ static t_node	*ind_stack(t_node *node, int *table, size_t len)
 		return (NULL);
 	i = -1;
 	table = ft_rev_int_tab(ft_sort_int_tab(table, len), len);
-	ft_printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-	ft_print_int_tab(table, len);
 	begin = node;
 	while (++i < len)
 	{
