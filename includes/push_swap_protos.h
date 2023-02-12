@@ -44,7 +44,7 @@ void		test_25();
 void		test_26();
 void		test_27();
 void		test_28();
-void		stack_burner_ind(t_stack *stack);
+void		stack_burner_ind(t_node *node);
 
 void		stack_burner(t_node *node);
 
@@ -70,6 +70,11 @@ int			push(t_stack *receiver, t_stack *sender, t_push_swap *vars);
 /* Instructions 2 */
 int			rotate(t_stack *head, t_push_swap *vars);
 int			rev_rotate(t_stack *head, t_push_swap *vars);
+int			push_bottom(t_stack *receiver, t_stack *sender, t_push_swap *vars);
+
+/* Sorting Functions */
+int			push_elements_in_b(t_stack *stack_a, t_stack *stack_b, int sort_nb,
+			t_push_swap *vars);
 
 /* Instruction Functions */
 t_instruct	*new_instruct(int val, t_instruct *next);

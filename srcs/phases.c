@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   phases.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 16:04:48 by tgernez          ###   ########.fr       */
+/*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
+/*   Updated: 2023/02/12 16:04:17 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	phase_1(void)
 {
-	(void) ac;
-	(void) av;
-	test_01();
-	test_02();
-	test_03();
-	test_04();
-	test_05();
-	test_06();
-	test_07();
-	test_08();
-	test_09();
-	test_10();
-	test_11();
-	test_12();
-	test_13();
-	test_14();
-	test_15();
-	test_16();
-	// test_17();
-	// test_18();
-	// test_19();
-	// test_20();
-	// test_21();
-	return (EXIT_SUCCESS);
+	return (0);
+}
+
+int phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
+{
+	int	sort_nb;
+
+	sort_nb = 1;
+	while (stack_a->len > 3)
+	{
+		push_elements_in_b(stack_a, stack_b, sort_nb, vars);
+		// actualize_ind(stack_a, vars);
+		sort_nb++;
+	}
+	return (0);
 }

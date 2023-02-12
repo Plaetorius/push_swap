@@ -6,12 +6,15 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:59:00 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/12 12:30:57 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	First element becomes last
+*/
 int	rotate(t_stack *stack, t_push_swap *vars)
 {
 	if (!stack || !(stack->head) || !vars)
@@ -26,6 +29,9 @@ int	rotate(t_stack *stack, t_push_swap *vars)
 	return (vars->insts == NULL);
 }
 
+/*
+	Last element becomes first
+*/
 int	rev_rotate(t_stack *stack, t_push_swap *vars)
 {
 	if (!stack || !(stack->head) || !vars)
@@ -39,4 +45,13 @@ int	rev_rotate(t_stack *stack, t_push_swap *vars)
 	else
 		vars->insts = new_instruct(REV_ROTATE_B, vars->insts);
 	return (vars->insts == NULL);
+}
+
+int	push_bottom(t_stack *receiver, t_stack *sender, t_push_swap *vars)
+{
+	if (push(receiver, sender, vars) == 1)
+		return (1);
+	if (rotate(receiver, vars) == 1)
+		return (1);
+	return (0);
 }

@@ -19,6 +19,30 @@
 #define YEL			"\033[1;33m"
 #define CYA			"\033[1;36m"
 
+void stack_burner_long(t_node *node)
+{
+	int i;
+	t_node *tmp;
+
+	tmp = node;
+	i = 0;
+	ft_printf("%s>>>STACK BURNING<<<\n%s", RED, RES);
+	ft_printf("Going Next to Next\n");
+	while (i < 40)
+	{
+		ft_printf("VAL %d /VAL\n", tmp->val);
+		tmp = tmp->next;
+		i++;
+	}
+	ft_printf("Going Prev to Prev\n");
+	while (i < 80)
+	{
+		ft_printf("VAL %d /VAL\n", tmp->val);
+		tmp = tmp->prev;
+		i++;
+	}
+}
+
 void stack_burner(t_node *node)
 {
 	int i;
@@ -38,6 +62,31 @@ void stack_burner(t_node *node)
 	while (i < 30)
 	{
 		ft_printf("VAL %d /VAL\n", tmp->val);
+		tmp = tmp->prev;
+		i++;
+	}
+}
+
+
+void stack_burner_ind(t_node *node)
+{
+	int i;
+	t_node *tmp;
+
+	tmp = node;
+	i = 0;
+	ft_printf("%s>>>STACK BURNING IND<<<\n%s", RED, RES);
+	ft_printf("Going Next to Next\n");
+	while (i < 15)
+	{
+		ft_printf("IND %d /IND for val %d\n", tmp->ind, tmp->val);
+		tmp = tmp->next;
+		i++;
+	}
+	ft_printf("Going Prev to Prev\n");
+	while (i < 30)
+	{
+		ft_printf("IND %d /IND for val %d\n", tmp->ind, tmp->val);
 		tmp = tmp->prev;
 		i++;
 	}
@@ -667,5 +716,68 @@ void test_15()
 	ft_free_strs(av);
 	free(entry);
 	ft_free_circular_nodes(vars.stack_a->head);
+	ft_free_stack(vars.insts);
+}
+
+void test_16()
+{
+	char		*entry;
+	char		**av;
+	int			ac;
+	int			*table;
+	int			passed;
+	t_stack		stack_a;
+	t_stack		stack_b;
+	t_node		*node;
+	t_push_swap	vars;
+	t_instruct	*instructs;
+	int			i;
+	int			correct[27];
+
+	ft_printf("=====Test 16=====\n");
+	ft_printf("Testing Push %s646 -1 64 36 -265 0 56 1362316 97752 -939682 3235 2864357 136 75 -473 -974 -1426 87592 751 -252 737 58165 7195601 4806 -8651 836%s entry on NULL stack...", YEL, RES);
+	passed = 1;
+	i = 0;
+	ac = 27;
+	entry = ft_strdup("push_swap 646 -1 64 36 -265 0 56 1362316 97752 -939682 3235 2864357 136 75 -473 -974 -1426 87592 751 -252 737 58165 7195601 4806 -8651 836");
+	av = ft_split(entry, ' ');
+	table = parsing(ac, av);
+	stack_a.len = ac - 1;
+	stack_b.len = 0;
+	instructs = NULL;
+	vars.insts = instructs;
+	vars.stack_a = &stack_a;
+	node = convert(table, stack_a.len, &vars);
+	stack_a.head = node;
+	stack_b.head = NULL;
+	vars.stack_a = &stack_a;
+	vars.stack_b = &stack_b;
+	stack_a = *vars.stack_a;
+	node = stack_a.head;
+	while (i < ac - 1)
+	{
+		correct[i] = i;
+		i++;
+	}
+	i = 0;
+	push_elements_in_b(&stack_a, &stack_b, 0, &vars);
+	push_elements_in_b(&stack_a, &stack_b, 0, &vars);
+
+	if (VERBOSE)
+	{
+		stack_burner_long(stack_a.head);
+		stack_burner_long(stack_b.head);
+		ft_printf("Len Stack A: %d\n", stack_a.len);
+		ft_printf("Len Stack B: %d\n", stack_b.len);
+		stack_burner_ind(stack_a.head);
+
+	}
+	
+	success(passed);
+	free(table);
+	ft_free_strs(av);
+	free(entry);
+	ft_free_circular_nodes(stack_a.head);
+	ft_free_circular_nodes(stack_b.head);
 	ft_free_stack(vars.insts);
 }

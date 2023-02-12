@@ -81,7 +81,8 @@ void	*ft_free_strs(char **strs);
 char	ft_cset_in_str(char *charset, char *str);
 void	ft_print_int_tab(int *tab, size_t len);
 int		*ft_sort_int_tab(int *tab, size_t len);
-int	ft_is_int_tab_sorted(int *tab, size_t len);
+int		ft_is_int_tab_sorted(int *tab, size_t len);
+int		*ft_rev_int_tab(int *tab, size_t len);
 
 /* PRINTF */
 int		ft_printf(const char *placeholders, ...);
