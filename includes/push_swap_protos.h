@@ -49,7 +49,7 @@ void		stack_burner_ind(t_node *node);
 void		stack_burner(t_node *node);
 
 /*	Parsing	1*/
-int			*parsing(int ac, char **av);
+int			*parsing(int ac, char **av, t_push_swap *vars);
 /*	Parsing 2*/
 int			get_arg_number(char *arg, int **table, int *current);
 
@@ -95,5 +95,6 @@ int			do_rev_rotate(t_stack *stack, int times, t_push_swap *vars);
 int			phase_1(char **av, int ac, t_push_swap *vars);
 int			phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
 int			phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
+void		memory_cleaning(t_push_swap *vars);
 
 #endif

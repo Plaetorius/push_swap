@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 16:17:27 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 18:30:15 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static int	check_doubles(int ac, int *table)
 	return (0);
 }
 
-int	*parsing(int ac, char **av)
+int	*parsing(int ac, char **av, t_push_swap *vars)
 {
 	int	*tab;
 	int	len;
@@ -116,7 +116,7 @@ int	*parsing(int ac, char **av)
 	if (!tab)
 		return (NULL);
 	ft_printf("Done\n");
-	
+	vars->stack_a->len = len;
 	if (fill_table(ac, av, &tab))
 		return (free(tab), NULL);
 	if (check_doubles(ac, tab) == 1)

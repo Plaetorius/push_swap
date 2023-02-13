@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:07:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 16:24:07 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 18:25:00 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,20 @@ static t_node	*initialize(size_t len, int *tab, t_node *node,
 
 	begin = node;
 	i = 1;
+	ft_printf("LEN %d /LEN\n", len);
 	while (i < len)
 	{
 		node->next = ft_node_new(tab[i], NULL, node, -1);
 		if (!node->next)
+		{
+			
 			return (ft_free_circular_nodes(node->next), NULL);
+		}
+			
 		node = node->next;
 		++i;
 	}
+		ft_printf("Je loop\n");
 	node->next = begin;
 	begin->prev = node;
 	vars->stack_a->head = begin;
@@ -73,6 +79,7 @@ t_node	*convert(int *tab, size_t len, t_push_swap *vars)
 		return (NULL);
 	if (ft_is_int_tab_sorted(tab, len))
 		return (NULL);
+	ft_printf("Tab isn't sorted\n");
 	i = 0;
 	node = ft_node_new(tab[0], NULL, NULL, -1);
 	if (!node)

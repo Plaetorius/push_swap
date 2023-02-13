@@ -140,7 +140,7 @@ void test_01()
 	ac = 5;
 	entry = ft_strdup("push_swap 1 2 3 4");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	i = 0;
 	passed = 1;
 	while (++i <= 4)
@@ -175,7 +175,7 @@ void test_02()
 	ac = 1;
 	entry = ft_strdup("push_swap");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	passed = table == NULL;
 	success(passed);
 	ft_free_strs(av);
@@ -189,13 +189,18 @@ void test_03()
 	int		ac;
 	int		*table;
 	int		passed;
+	t_stack		sender;
+	t_stack		receiver;
+	t_node		*node;
+	t_push_swap	vars;
+	t_instruct	*instructs;
 
 	ft_printf("=====Test 03=====\n");
 	ft_printf("Testing Parsing with %s1 1 1 1 1%s entry...", YEL, RES);
 	ac = 6;
 	entry = ft_strdup("push_swap 1 1 1 1 1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	passed = table == NULL;
 	if (passed)
 		ft_printf("%spassed!%s\n", GRE, RES);
@@ -271,7 +276,7 @@ void test_06()
 	ac = 2;
 	entry = ft_strdup("push_swap 1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	ft_printf("%d", table[0]);
 	// ft_print_int_tab(table, 2);
 	stack.len = ac - 1;
@@ -312,7 +317,7 @@ void test_07()
 	ac = 6;
 	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -361,7 +366,7 @@ void test_08()
 	ac = 4;
 	entry = ft_strdup("push_swap -1 0 56");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	sender.len = ac - 1;
 	receiver.len = 0;
 	instructs = NULL;
@@ -411,7 +416,7 @@ void test_09()
 	ac = 3;
 	entry = ft_strdup("push_swap 5263566 30");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -457,7 +462,7 @@ void test_10()
 	ac = 6;
 	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -508,7 +513,7 @@ void test_11()
 	ac = 3;
 	entry = ft_strdup("push_swap 2 -1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	sender.len = ac - 1;
 	receiver.len = 0;
 	instructs = NULL;
@@ -565,7 +570,7 @@ void test_12()
 	ac = 6;
 	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -614,7 +619,7 @@ void test_13()
 	ac = 2;
 	entry = ft_strdup("push_swap 5263566");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -659,7 +664,7 @@ void test_14()
 	ac = 6;
 	entry = ft_strdup("push_swap 5263566 30 -356274 0 -1");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -708,7 +713,7 @@ void test_15()
 	ac = 2;
 	entry = ft_strdup("push_swap 5263566");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	// ft_print_int_tab(table, 5);
 	stack.len = ac - 1;
 	vars.stack_a = &stack;
@@ -755,7 +760,7 @@ void test_16()
 	ac = 27;
 	entry = ft_strdup("push_swap 646 -1 64 36 -265 0 56 1362316 97752 -939682 3235 2864357 136 75 -473 -974 -1426 87592 751 -252 737 58165 7195601 4806 -8651 836");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	stack_a.len = ac - 1;
 	stack_b.len = 0;
 	instructs = NULL;
@@ -815,7 +820,7 @@ void test_17()
 	ac = 8;
 	entry = ft_strdup("push_swap 646 -1 64 10 17 46 235");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	stack_a.len = ac - 1;
 	stack_b.len = 0;
 	instructs = NULL;
@@ -875,7 +880,7 @@ void test_18()
 	ac = 8;
 	entry = ft_strdup("push_swap 646 -1 64 10 17 46 235");
 	av = ft_split(entry, ' ');
-	table = parsing(ac, av);
+	table = parsing(ac, av, &vars);
 	stack_a.len = ac - 1;
 	stack_b.len = 0;
 	instructs = NULL;
@@ -924,5 +929,3 @@ void test_18()
 	ft_free_circular_nodes(stack_b.head);
 	ft_free_stack(vars.insts);	
 }
-
-

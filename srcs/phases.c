@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 13:24:40 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 18:38:40 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@ int	phase_1(char **av, int ac, t_push_swap *vars)
 
 	if (!av || ac == 1 || !vars)
 		return (1);
-	table = parsing(ac, av);
+	table = parsing(ac, av, vars);
 	if (!table)
 		return (1);
+	ft_printf("Parsing Passed\n");
+	ft_printf("PHASE 1 LEN %d /PHASE 1 LEN\n", vars->stack_a->len);
 	node = convert(table, vars->stack_a->len, vars);
 	if (!node)
 		return (free(table), 1);
+	ft_printf("Convert Passed\n");
 	vars->stack_a->head = node;
 	free(table);
 	return (0);
@@ -83,6 +86,7 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 			return (1);
 		i++;
 	}
+	instructions_shower(vars->insts);
 	return (0);
 }
 
