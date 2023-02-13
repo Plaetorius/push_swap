@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 20:22:07 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 22:01:28 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	vars.stack_a = &stack_a;
 	vars.stack_b = &stack_b;
 	vars.insts = instructs;
-
+	vars.splits = 3;
 	if (phase_1(av, ac, &vars) == 1)
 		return (memory_cleaning(&vars), EXIT_FAILURE);
 	if (phase_2(vars.stack_a, vars.stack_b, &vars) == 1)
