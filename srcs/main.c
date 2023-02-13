@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 11:52:42 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:24:11 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 int	main(int ac, char **av)
 {
+	t_push_swap	vars;
+	t_stack		stack_a;
+	t_stack		stack_b;
+	t_instruct	*instructs;
+	
+	stack_a.head = NULL;
+	stack_a.len = 0;
+	stack_b.head = NULL;
+	stack_b.len = 0;	
+	instructs = NULL;
+	vars.stack_a = &stack_a;
+	vars.stack_b = &stack_b;
+	vars.insts = instructs;
+
 	(void) ac;
 	(void) av;
 	test_01();

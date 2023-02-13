@@ -6,13 +6,13 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 11:44:19 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:24:40 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initialisation(int ac, t_push_swap *vars)
+void	initialisation(t_push_swap *vars)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
@@ -23,6 +23,9 @@ void	initialisation(int ac, t_push_swap *vars)
 	stack_b.head = NULL;
 	stack_b.len = 0;	
 	instructs = NULL;
+	vars->stack_a = &stack_a;
+	vars->stack_b = &stack_b;
+	vars->insts = instructs;
 }
 
 int	phase_1(char **av, int ac, t_push_swap *vars)
@@ -35,7 +38,7 @@ int	phase_1(char **av, int ac, t_push_swap *vars)
 	table = parsing(ac, av);
 	if (!table)
 		return (1);
-	node = convert(table, vars->stack_a->len, &vars);
+	node = convert(table, vars->stack_a->len, vars);
 	if (!node)
 		return (free(table), 1);
 	vars->stack_a->head = node;
@@ -87,7 +90,7 @@ void	memory_cleaning(t_push_swap *vars)
 {
 	if (!vars)
 		return ;
-	ft_free_circular_nodes(vars->stack_a);
-	ft_free_circular_nodes(vars->stack_b);
+	ft_free_circular_nodes(vars->stack_a->head);
+	ft_free_circular_nodes(vars->stack_b->head);
 	ft_free_stack(vars->insts);
 }

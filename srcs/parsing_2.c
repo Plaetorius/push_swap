@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:58:44 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 12:14:17 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:19:19 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	get_arg_number(char *sub_arg, int **table, int *current)
 		(*table)[*current] = tmp;
 		(*current)++;
 		i++;	
-	};
+	}
 	return (0);
 }

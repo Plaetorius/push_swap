@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 12:14:59 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:22:04 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,12 @@ static int	arguments_checker(int ac, char **av)
 static int	fill_table(int ac, char **av, int **table)
 {
 	int		i;
-	long	tmp;
 	char	**strs;
 	int		j;
-	int		*current;
+	int		current;
 
 	i = 1;
-	*current = 0;
+	current = 0;
 	while (i < ac)
 	{
 		strs = ft_split(av[i], ' ');
@@ -72,7 +71,7 @@ static int	fill_table(int ac, char **av, int **table)
 		j = 0;
 		while (strs[j])
 		{
-			if (get_arg_number(strs[j], table, current));
+			if (get_arg_number(strs[j], table, &current) == 1)
 				return (ft_free_strs(strs), 1);
 			j++;
 		}		
@@ -115,6 +114,8 @@ int	*parsing(int ac, char **av)
 	tab = ft_calloc(sizeof(int), len);
 	if (!tab)
 		return (NULL);
+	ft_printf("Done\n");
+	
 	if (fill_table(ac, av, &tab))
 		return (free(tab), NULL);
 	if (check_doubles(ac, tab) == 1)
