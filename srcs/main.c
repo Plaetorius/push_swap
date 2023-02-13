@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 18:21:15 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 20:22:07 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,10 @@ int	main(int ac, char **av)
 
 	if (phase_1(av, ac, &vars) == 1)
 		return (memory_cleaning(&vars), EXIT_FAILURE);
-	ft_printf("End of Phase 1\n");
 	if (phase_2(vars.stack_a, vars.stack_b, &vars) == 1)
 		return (memory_cleaning(&vars), EXIT_FAILURE);
-	ft_printf("End of Phase 2\n");
 	if (phase_3(vars.stack_a, vars.stack_b, &vars) == 1)
 		return (memory_cleaning(&vars), EXIT_FAILURE);
-	ft_printf("End of Phase 3\n");
 	memory_cleaning(&vars);
 	return (EXIT_SUCCESS);
 }
