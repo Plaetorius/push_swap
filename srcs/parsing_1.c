@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 13:22:04 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:17:27 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ static int	fill_table(int ac, char **av, int **table)
 			j++;
 		}		
 		i++;
+		ft_free_strs(strs);
 	}
-	ft_free_strs(strs);
 	return (0);
 }
 
@@ -112,6 +112,7 @@ int	*parsing(int ac, char **av)
 	if (len == -1)
 		return (NULL);
 	tab = ft_calloc(sizeof(int), len);
+	ft_printf("Len %d /Len\n", len);
 	if (!tab)
 		return (NULL);
 	ft_printf("Done\n");

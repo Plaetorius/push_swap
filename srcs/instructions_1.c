@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:08:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 10:08:29 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:52:03 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ static t_node	*aux_push(t_stack *receiver, t_stack *sender)
 
 	tmp = sender->head;
 	second = sender->head->next;
+	ft_printf("Len Receiver Before %d /Len Receiver Before\n", receiver->len);
+	ft_printf("Len Sender Before %d /Len Sender Before\n", sender->len);
 	receiver->len += 1;
 	sender->len -= 1;
+	ft_printf("Len Receiver After %d /Len Receiver After\n", receiver->len);
+	ft_printf("Len Sender After %d /Len Sender After\n", sender->len);
 	if (receiver->head)
 	{
 		node = ft_node_new(tmp->val, receiver->head,
@@ -46,8 +50,10 @@ int	push(t_stack *receiver, t_stack *sender, t_push_swap *vars)
 	t_node		*node;
 	t_node		*tmp;
 
+	ft_printf("In Push %p \n", sender->head);
 	if (!sender || !(sender->head) || !vars || sender->len == 0)
-		return (1);
+		return (ft_printf("Taking first exit\n"), 1);
+	
 	node = aux_push(receiver, sender);
 	tmp = sender->head;
 	receiver->head = node;
