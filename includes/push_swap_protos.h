@@ -48,8 +48,11 @@ void		stack_burner_ind(t_node *node);
 
 void		stack_burner(t_node *node);
 
-/*	Parsing	 */
+/*	Parsing	1*/
 int			*parsing(int ac, char **av);
+/*	Parsing 2*/
+int			get_arg_number(char *arg, int **table, int *current);
+
 
 /* Atoi Def */
 long		atoi_def(const char *str);

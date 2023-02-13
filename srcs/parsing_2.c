@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 11:52:42 by tgernez          ###   ########.fr       */
+/*   Created: 2023/02/13 11:58:44 by tgernez           #+#    #+#             */
+/*   Updated: 2023/02/13 12:14:17 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	get_arg_number(char *sub_arg, int **table, int *current)
 {
-	(void) ac;
-	(void) av;
-	test_01();
-	test_02();
-	test_03();
-	test_04();
-	test_05();
-	test_06();
-	test_07();
-	test_08();
-	test_09();
-	test_10();
-	test_11();
-	test_12();
-	test_13();
-	test_14();
-	test_15();
-	test_16();
-	test_17();
-	test_18();
-	return (EXIT_SUCCESS);
+	int		i;
+	long	tmp;
+
+	i = 0;
+	while (sub_arg[i])
+	{
+		if (sub_arg[i] == '-')
+			i++;
+		while (('0' <= sub_arg[i] && sub_arg[i] <= '9' && sub_arg[i]))
+			i++;
+		if (sub_arg[i] != '\0')
+			return (1);
+		tmp = atoi_def(sub_arg);
+		if (!(INT_MIN <= tmp && tmp <= INT_MAX))
+			return (1);
+		(*table)[*current] = tmp;
+		(*current)++;
+		i++;	
+	};
+	return (0);
 }

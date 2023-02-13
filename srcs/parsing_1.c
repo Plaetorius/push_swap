@@ -1,52 +1,84 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/10 15:47:41 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 12:14:59 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	numbers_counter(char *arg, int *numbers_count)
+{
+	char	**strs;
+	int		i;
+	int		j;
+
+	strs = ft_split(arg, ' ');
+	if (!strs)
+		return (1);
+	i = 0;
+	while (strs[i])
+	{
+		j = 0;
+		if (strs[i][j] == '-')
+			j++;
+		while (('0' <= strs[i][j] && strs[i][j] <= '9' && strs[i][j]))
+			j++;
+		if (strs[i][j] != '\0')
+			return (1);
+		(*numbers_count)++;
+		i++;	
+	}
+	ft_free_strs(strs);
+	return (0);
+}
+
 static int	arguments_checker(int ac, char **av)
 {
 	int	i;
-	int	j;
+	int	numbers_count;
 
 	i = 1;
+	numbers_count = 0;
 	while (i < ac && av[i])
 	{
-		j = 0;
-		if (av[i][j] == '-')
-			j++;
-		while (('0' <= av[i][j] && av[i][j] <= '9' && av[i][j]))
-			j++;
-		if (av[i][j] != '\0')
-			return (1);
+		if (numbers_counter(av[i], &numbers_count) == 1)
+			return (-1);
 		i++;
 	}
-	return (0);
+	return (numbers_count);
 }
 
 static int	fill_table(int ac, char **av, int **table)
 {
 	int		i;
 	long	tmp;
+	char	**strs;
+	int		j;
+	int		*current;
 
 	i = 1;
+	*current = 0;
 	while (i < ac)
 	{
-		tmp = atoi_def(av[i]);
-		if (INT_MIN <= tmp && tmp <= INT_MAX)
-			(*table)[i - 1] = tmp;
-		else
+		strs = ft_split(av[i], ' ');
+		if (!strs)
 			return (1);
+		j = 0;
+		while (strs[j])
+		{
+			if (get_arg_number(strs[j], table, current));
+				return (ft_free_strs(strs), 1);
+			j++;
+		}		
 		i++;
 	}
+	ft_free_strs(strs);
 	return (0);
 }
 
@@ -73,12 +105,14 @@ static int	check_doubles(int ac, int *table)
 int	*parsing(int ac, char **av)
 {
 	int	*tab;
+	int	len;
 
 	if (ac == 1)
 		return (NULL);
-	if (arguments_checker(ac, av) == 1)
+	len = arguments_checker(ac, av);
+	if (len == -1)
 		return (NULL);
-	tab = ft_calloc(sizeof(int), ac - 1);
+	tab = ft_calloc(sizeof(int), len);
 	if (!tab)
 		return (NULL);
 	if (fill_table(ac, av, &tab))

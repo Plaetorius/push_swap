@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:07:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 10:10:12 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 11:05:53 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ t_node	*convert(int *tab, size_t len, t_push_swap *vars)
 	size_t	i;
 
 	if (!tab || !vars)
+		return (NULL);
+	if (ft_is_int_tab_sorted(tab, len))
 		return (NULL);
 	i = 0;
 	node = ft_node_new(tab[0], NULL, NULL, -1);
