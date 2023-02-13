@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:08:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:53:07 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 10:08:29 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ int	swap(t_stack *stack, t_push_swap *vars)
 		stack->head->prev = first;
 		stack->head->next = third;
 		third->prev = stack->head;
-		stack->head = first;		
+		stack->head = first;
 	}
 	return (swap_aux(stack, first, vars));
-	
 }

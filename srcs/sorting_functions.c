@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 21:13:52 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 10:07:26 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
-	int 	i;
+	int		i;
 	int		val;
 	int		len_a;
 
 	len_a = stack_a->len;
 	i = 0;
-	// if (len_a <= 3)
-	// 	return (0);
 	while (i < len_a)
 	{
 		if (stack_a->head->ind < len_a / SPLITS)
@@ -38,15 +36,14 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	return (0);
 }
 
-int sort_three(t_stack *stack, t_push_swap *vars)
+int	sort_three(t_stack *stack, t_push_swap *vars)
 {
 	(void)stack;
 	(void)vars;
 	return (0);
 }
 
-
-int shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
+int	shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
 {
 	size_t	travelled;
 	t_node	*node;

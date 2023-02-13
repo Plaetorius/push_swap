@@ -6,13 +6,14 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:07:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 18:34:03 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 10:10:12 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node	*initialize(size_t len, int *tab, t_node *node, t_push_swap *vars)
+static t_node	*initialize(size_t len, int *tab, t_node *node,
+				t_push_swap *vars)
 {
 	size_t	i;
 	t_node	*begin;
@@ -38,7 +39,7 @@ static t_node	*ind_stack(t_node *node, int *table, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	t_node 	*begin;
+	t_node	*begin;
 
 	if (!node)
 		return (NULL);
@@ -73,7 +74,7 @@ t_node	*convert(int *tab, size_t len, t_push_swap *vars)
 	i = 0;
 	node = ft_node_new(tab[0], NULL, NULL, -1);
 	if (!node)
-		return (NULL);	
+		return (NULL);
 	vars->stack_a->len = 1;
 	vars->stack_a->head = node;
 	if (len == 1)
@@ -82,5 +83,5 @@ t_node	*convert(int *tab, size_t len, t_push_swap *vars)
 		return (ft_node_endings(node, node, node), node);
 	}
 	return (ind_stack(initialize(len, tab, node, vars), tab,
-		vars->stack_a->len));
+			vars->stack_a->len));
 }

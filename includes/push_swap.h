@@ -32,7 +32,6 @@ enum e_instructs
 	PUSH_B,
 	ROTATE_B,
 	REV_ROTATE_B,
-	SS,
 	RR,
 	RRR
 };

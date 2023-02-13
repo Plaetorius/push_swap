@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 21:00:02 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 10:07:34 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,5 @@ int	main(int ac, char **av)
 	test_16();
 	test_17();
 	test_18();
-	// test_19();
-	// test_20();
-	// test_21();
 	return (EXIT_SUCCESS);
 }

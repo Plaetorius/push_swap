@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 12:30:57 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 10:09:21 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	rev_rotate(t_stack *stack, t_push_swap *vars)
 {
 	if (!stack || !(stack->head) || !vars)
 		return (1);
-
 	if (stack->len == 1)
 		return (0);
 	stack->head = stack->head->prev;

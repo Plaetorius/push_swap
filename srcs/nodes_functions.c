@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:10:42 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/11 17:57:33 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/13 10:08:03 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_node	*ft_node_new(int val, t_node *next, t_node *prev, int ind)
 
 void	ft_free_circular_nodes(t_node *node)
 {
-	t_node *tmp;
-	t_node *ptr;
+	t_node	*tmp;
+	t_node	*ptr;
 
 	if (!node)
 		return ;

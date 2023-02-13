@@ -897,6 +897,7 @@ void test_18()
 		node = node->next;
 		i++;
 	}
+	instructions_shower(vars.insts);
 	// if (VERBOSE)
 	// {
 	// 	stack_burner_long(stack_a.head);
