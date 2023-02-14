@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 22:02:30 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:33:16 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,21 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
 	int	i;
+	int var;
 
 	i = stack_a->len;
 	while (stack_b->len > 0)
 	{
-		if (shortest_to_ind(stack_b, i, vars))
-			return (1);
 		if (push(stack_a, stack_b, vars))
+			return (1);
+		if (stack_a->head->ind != i)
+			var = rotate(stack_a, vars);
+		else
+		{
+			if (next_ind_present(stack_a, vars) == 1)
+				val = shortest_to_ind(stack_a, ++i, vars)
+		}
+		if (var)
 			return (1);
 		i++;
 	}

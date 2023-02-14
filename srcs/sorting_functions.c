@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/14 12:04:00 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:17:50 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	len_a = stack_a->len;
 	i = 0;
 	// ft_printf("\n\n\nLen A %d /Len A\n", len_a);
-	while (i < len_a)
+	while (i < len_a / 3)
 	{
 		// ft_printf("I %d /I\n", i); || stack_a->head->ind < 3
 		// ft_printf("(Len A/SPLITS)		%d /(LEN A/SPLITS)\n", len_a / SPLITS);
