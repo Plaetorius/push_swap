@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/14 13:17:50 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/14 16:06:28 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,25 @@ int	shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
 		var = do_rev_rotate(stack, stack->len - travelled, vars);
 	if (var == 1)
 		return (1);
+	return (0);
+}
+
+int next_ind_present(t_stack *stack, int i)
+{
+	size_t	j;
+	t_node	*node;
+
+	if (!stack)
+		return (0);
+	i++;
+	node = stack->head;
+	j = 0;
+	while (j < stack->len)
+	{
+		if (node->ind == i)
+			return (1);
+		node = node->next;	
+		j++;
+	}
 	return (0);
 }

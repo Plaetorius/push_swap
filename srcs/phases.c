@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/14 13:33:16 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/14 16:55:57 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	phase_1(char **av, int ac, t_push_swap *vars)
 
 int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
-	while (stack_a->len > 3)
-	{
+	// while (stack_a->len > 3)
+	// {
 		push_elements_in_b(stack_a, stack_b, vars);
-	}
+	// }
 	if (stack_a->len == 0 || stack_a->len == 1)
 		return (0);
 	else if (stack_a->len == 2)
@@ -68,6 +68,7 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		if (sort_three(stack_a, vars) == 1)
 			return (1);
 	}
+	ft_printf("Passed Phase 2\n");
 	return (0);
 }
 
@@ -77,19 +78,24 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	int var;
 
 	i = stack_a->len;
+	var = 0;
 	while (stack_b->len > 0)
 	{
 		if (push(stack_a, stack_b, vars))
 			return (1);
 		if (stack_a->head->ind != i)
+		{
 			var = rotate(stack_a, vars);
+			// ft_printf("Value of Var after rotate %d\n", var);
+		}
 		else
 		{
-			if (next_ind_present(stack_a, vars) == 1)
-				val = shortest_to_ind(stack_a, ++i, vars)
+			while ((size_t)i < stack_a->len && next_ind_present(stack_a, i))
+				var = shortest_to_ind(stack_a, ++i, vars);
+			// ft_printf("Value of Var after next ind present %d\n", var);
 		}
 		if (var)
-			return (1);
+			return (ft_printf("Var is 1\n"), 1);
 		i++;
 	}
 	instructions_shower(vars->insts);
