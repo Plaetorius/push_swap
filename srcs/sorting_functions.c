@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/14 16:06:28 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/15 14:32:28 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,28 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		// ft_printf("I %d /I\n", i); || stack_a->head->ind < 3
 		// ft_printf("(Len A/SPLITS)		%d /(LEN A/SPLITS)\n", len_a / SPLITS);
 		// ft_printf("(Len A/SPLITS)*2	%d /(LEN A/SPLITS)*2\n", (len_a / SPLITS) * 2);
-		if (stack_a->head->ind < len_a / SPLITS)
+		if (stack_a->head->ind < 3)
 		{
-			// ft_printf("Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
+			ft_printf("Small Ind Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
+			val = rotate(stack_a, vars);
+		}
+		else if (stack_a->head->ind < len_a / SPLITS
+				&& stack_a->head->ind > 2)
+		{
+			ft_printf("Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = rotate(stack_a, vars);
 		}
 		else if (stack_a->head->ind >= len_a / SPLITS
-			&& stack_a->head->ind < (len_a / SPLITS) * 2)
+			&& stack_a->head->ind < (len_a / SPLITS) * 2
+			&& stack_a->head->ind > 2)
 		{
-			// ft_printf("Pushed Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
+			ft_printf("Pushed Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = push(stack_b, stack_a, vars);
 		}
-		else
+		else if (stack_a->head->ind >= (len_a / SPLITS) * 2
+				&& stack_a->head->ind > 2)
 		{
-			// ft_printf("Push Bottom-ed Val:	%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
+			ft_printf("Push Bottom-ed Val:	%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = push_bottom(stack_b, stack_a, vars);
 		}
 		if (val == 1)
@@ -61,19 +69,19 @@ int	sort_three(t_stack *stack, t_push_swap *vars)
 	if (ind_1 < ind_2 && ind_2 < ind_3)
 		return (0);
 	else if (ind_2 < ind_1 && ind_1 < ind_3)
-		return (swap(stack, vars));
+		return (rotate(stack, vars));
 	else if (ind_3 < ind_2 && ind_2 < ind_1)
 		return (do_rotate(stack, 2, vars));
 	else if (ind_3 < ind_1 && ind_1 < ind_2)
 		return (rev_rotate(stack, vars));
-	else if (ind_2 < ind_3 && ind_3 < ind_1)
-		return (rotate(stack, vars));
 	else if (ind_1 < ind_3 && ind_3 < ind_2)
-	{
-		if (rotate(stack, vars) == 1)
-			return (1);
-		return (swap(stack, vars));
-	}	
+		return (rotate(stack, vars));
+	// else if (ind_2 < ind_3 && ind_3 < ind_1)
+	// {
+	// 	if (rev_rotate(stack, vars) == 1)
+	// 		return (1);
+	// 	return (swap(stack, vars));
+	// }	
 	return (1);
 }
 
