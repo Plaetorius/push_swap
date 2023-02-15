@@ -45,7 +45,7 @@ void		test_26(void);
 void		test_27(void);
 void		test_28(void);
 void		stack_burner_ind(t_node *node);
-
+void		print_stack(t_stack *stack);
 void		stack_burner(t_node *node);
 
 /*	Parsing	1*/
