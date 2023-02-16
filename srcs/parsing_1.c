@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 18:56:08 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:39:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,8 @@ int	*parsing(int ac, char **av, t_push_swap *vars)
 	if (len == -1)
 		return (NULL);
 	tab = ft_calloc(sizeof(int), len);
-	// ft_printf("Len %d /Len\n", len);
 	if (!tab)
 		return (NULL);
-	// ft_printf("Done\n");
 	vars->stack_a->len = len;
 	if (fill_table(ac, av, &tab))
 		return (free(tab), NULL);

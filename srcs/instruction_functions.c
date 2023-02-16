@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:44:21 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 14:19:17 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 14:52:26 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	new_instruct(int val, t_push_swap *vars)
 	t_instruct	*instruct;
 	t_instruct	*tmp;
 
-	ft_printf("New Instruction Called\n");
+	// ft_printf("New Instruction Called %d\n", val);
 	instruct = malloc(sizeof(t_instruct));
 	if (!instruct)
 		return (1);

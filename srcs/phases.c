@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 13:10:42 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:37:30 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 			return (ft_printf("Var is 1\n"), 1);
 		i++;
 	}
-	instructions_shower(vars->insts);
+	// instructions_shower(vars->insts);
 	return (0);
 }
 

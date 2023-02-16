@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:08:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 12:52:20 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 14:40:46 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	push(t_stack *receiver, t_stack *sender, t_push_swap *vars)
 		return (ft_printf("Taking first exit\n"), 1);
 	
 	node = aux_push(receiver, sender);
+	if (!node)
+		return (1);
 	tmp = sender->head;
 	receiver->head = node;
 	sender->head = sender->head->next;
@@ -67,7 +69,7 @@ int	push(t_stack *receiver, t_stack *sender, t_push_swap *vars)
 		stack_association(sender, receiver, vars);
 		return (new_instruct(PUSH_B, vars));
 	}
-	return (vars->insts == NULL);
+	return (1);
 }
 
 static int	swap_aux(t_stack *stack, t_node *first, t_push_swap *vars)
