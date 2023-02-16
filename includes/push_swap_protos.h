@@ -82,6 +82,7 @@ int			push_elements_in_b(t_stack *stack_a, t_stack *stack_b,
 int			sort_three(t_stack *stack, t_push_swap *vars);
 int			shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars);
 int			next_ind_present(t_stack *stack, int i);
+int			is_stack_sorted(t_stack *stack);
 
 /* Instruction Functions */
 int			new_instruct(int val, t_push_swap *vars);
