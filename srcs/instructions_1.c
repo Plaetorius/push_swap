@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:08:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 18:20:41 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 12:52:20 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int	push(t_stack *receiver, t_stack *sender, t_push_swap *vars)
 	if (vars->stack_a == receiver)
 	{
 		stack_association(receiver, sender, vars);
-		vars->insts = new_instruct(PUSH_A, vars->insts);
+		return (new_instruct(PUSH_A, vars));
 	}
 	else
 	{
 		stack_association(sender, receiver, vars);
-		vars->insts = new_instruct(PUSH_B, vars->insts);
+		return (new_instruct(PUSH_B, vars));
 	}
 	return (vars->insts == NULL);
 }
@@ -75,14 +75,12 @@ static int	swap_aux(t_stack *stack, t_node *first, t_push_swap *vars)
 	if (stack == vars->stack_a)
 	{
 		vars->stack_a->head = first;
-		vars->insts = new_instruct(SWAP_A, vars->insts);
-		return (vars->insts == NULL);
+		return (new_instruct(SWAP_A, vars));
 	}
 	else
 	{
 		vars->stack_b->head = first;
-		vars->insts = new_instruct(SWAP_B, vars->insts);
-		return (vars->insts == NULL);
+		return (new_instruct(SWAP_B, vars));
 	}
 }
 
@@ -90,6 +88,7 @@ int	swap(t_stack *stack, t_push_swap *vars)
 {
 	t_node	*third;
 	t_node	*first;
+	int test;
 
 	if (!stack || !(stack->head) || !vars || stack->len == 1)
 		return (1);
@@ -107,5 +106,7 @@ int	swap(t_stack *stack, t_push_swap *vars)
 		third->prev = stack->head;
 		stack->head = first;
 	}
-	return (swap_aux(stack, first, vars));
+	test = swap_aux(stack, first, vars);
+	ft_printf("Test %d Test\n", test);
+	return (test);
 }

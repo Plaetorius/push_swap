@@ -6,13 +6,13 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:44:21 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/15 14:13:09 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 14:19:17 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_instruct	*new_instruct(int val, t_instruct *first)
+int	new_instruct(int val, t_push_swap *vars)
 {
 	t_instruct	*instruct;
 	t_instruct	*tmp;
@@ -20,16 +20,20 @@ t_instruct	*new_instruct(int val, t_instruct *first)
 	ft_printf("New Instruction Called\n");
 	instruct = malloc(sizeof(t_instruct));
 	if (!instruct)
-		return (NULL);
-	tmp = first;
+		return (1);
 	instruct->val = val;
-	instruct->next = first;
-	if (first == NULL)
-		return (instruct);
-	while (first->next)
-		first = first->next;
-	first->next = instruct;
-	return (first);
+	instruct->next = NULL;
+	tmp = vars->insts;
+	if (vars->insts == NULL)
+		vars->insts = instruct;
+	else
+	{
+		while (vars->insts->next)
+			vars->insts = vars->insts->next;
+		vars->insts->next = instruct;
+		vars->insts = tmp;
+	}
+	return (0);
 }
 
 void	stack_association(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)

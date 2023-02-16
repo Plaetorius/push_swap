@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 21:46:01 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 12:51:16 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int	rotate(t_stack *stack, t_push_swap *vars)
 		return (0);
 	stack->head = stack->head->next;
 	if (vars->stack_a == stack)
-		vars->insts = new_instruct(ROTATE_A, vars->insts);
+		return (new_instruct(ROTATE_A, vars));
 	else
-		vars->insts = new_instruct(ROTATE_B, vars->insts);
-	return (vars->insts == NULL);
+		return (new_instruct(ROTATE_B, vars));
 }
 
 /*
@@ -40,10 +39,9 @@ int	rev_rotate(t_stack *stack, t_push_swap *vars)
 		return (0);
 	stack->head = stack->head->prev;
 	if (vars->stack_a == stack)
-		vars->insts = new_instruct(REV_ROTATE_A, vars->insts);
+		return (new_instruct(REV_ROTATE_A, vars));
 	else
-		vars->insts = new_instruct(REV_ROTATE_B, vars->insts);
-	return (vars->insts == NULL);
+		return (new_instruct(REV_ROTATE_B, vars));
 }
 
 int	push_bottom(t_stack *receiver, t_stack *sender, t_push_swap *vars)
