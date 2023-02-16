@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 16:41:08 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 18:38:16 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	while (i < len_a)
 	{
 		// ft_printf("I %d /I\n", i);
-		if (stack_a->head->ind < 3)
-		{
-			// ft_printf("Small Ind Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
-			val = rotate(stack_a, vars);
-		}
-		else if (stack_a->head->ind < len_a / SPLITS)
+		// if (stack_a->head->ind < 3)
+		// {
+		// 	// ft_printf("Small Ind Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
+		// 	val = rotate(stack_a, vars);
+		// }
+		if (stack_a->head->ind < len_a / SPLITS)
 		{
 			// ft_printf("Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = rotate(stack_a, vars);
@@ -45,7 +45,6 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		}
 		else if (stack_a->head->ind >= ((len_a / SPLITS) * 2))
 		{
-			// ft_printf("Putain de valeur de mort %d\n ", ((len_a / SPLITS) * 2));
 			// ft_printf("Push Bottom-ed Val:	%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = push_bottom(stack_b, stack_a, vars);
 		}

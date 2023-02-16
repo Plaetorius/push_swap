@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 17:13:19 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 17:59:25 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	i = stack_a->len;
 	var = 0;
 	ft_printf("Beginning Phase 3\n");
-	while ((size_t)i < stack_a ->len + stack_b->len)
+	while ((size_t)i < stack_a->len + stack_b->len)
 	{
 			var = shortest_to_ind(stack_b, i, vars);
 			var = push(stack_a, stack_b, vars);
