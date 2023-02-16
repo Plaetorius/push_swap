@@ -19,7 +19,7 @@
 # include <stddef.h>
 # include "libft.h"
 # ifndef SPLITS
-#  define SPLITS 3
+#  define SPLITS 5
 # endif
 
 enum e_instructs

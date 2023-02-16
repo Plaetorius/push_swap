@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 17:59:25 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/16 20:30:06 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	phase_1(char **av, int ac, t_push_swap *vars)
 	if (!node)
 		return (free(table), 1);
 	vars->stack_a->head = node;
-	vars->splits = splits_number(vars->stack_a->len, vars);
+	splits_number(vars->stack_a->len, vars);
 	free(table);
 	return (0);
 }
@@ -83,9 +83,11 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	ft_printf("Beginning Phase 3\n");
 	while ((size_t)i < stack_a->len + stack_b->len)
 	{
-			var = shortest_to_ind(stack_b, i, vars);
-			var = push(stack_a, stack_b, vars);
-			i++;		
+		// if (i % 2)
+		// 	rev_rotate(stack_b, vars);
+		var = shortest_to_ind(stack_b, i, vars);
+		var = push(stack_a, stack_b, vars);
+		i++;		
 	}
 
 	// while (!(is_stack_sorted(stack_a) && stack_b->len == 0))
