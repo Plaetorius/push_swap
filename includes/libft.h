@@ -89,6 +89,9 @@ void	ft_print_int_tab(int *tab, size_t len);
 int		*ft_sort_int_tab(int *tab, size_t len);
 int		ft_is_int_tab_sorted(int *tab, size_t len);
 int		*ft_rev_int_tab(int *tab, size_t len);
+void	ft_free_ints(int **tab);
+int		**ft_ints(int len_tab, int len_tabs);
+
 /* PRINTF */
 int		ft_printf(const char *placeholders, ...);
 /*PRINTERS*/

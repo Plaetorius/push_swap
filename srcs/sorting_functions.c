@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 20:27:17 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 14:21:16 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,29 @@ int	sort_three(t_stack *stack, t_push_swap *vars)
 	return (1);
 }
 
-int	shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
+// int	shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
+// {
+// 	size_t	travelled;
+// 	t_node	*node;
+// 	int		var;
+
+// 	node = stack->head;
+// 	travelled = 0;
+// 	while (travelled < stack->len && node->ind != ind)
+// 	{
+// 		travelled++;
+// 		node = node->next;
+// 	}
+// 	if (travelled < stack->len - travelled)
+// 		var = do_rotate(stack, travelled, vars);
+// 	else
+// 		var = do_rev_rotate(stack, stack->len - travelled, vars);
+// 	if (var == 1)
+// 		return (1);
+// 	return (0);
+// }
+
+int	shortest_to_top(t_stack *stack, int ind)
 {
 	size_t	travelled;
 	t_node	*node;
@@ -98,13 +120,10 @@ int	shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
 		node = node->next;
 	}
 	if (travelled < stack->len - travelled)
-		var = do_rotate(stack, travelled, vars);
-	else
-		var = do_rev_rotate(stack, stack->len - travelled, vars);
-	if (var == 1)
-		return (1);
-	return (0);
+		return (travelled);
+	return (-(stack->len - travelled));
 }
+
 
 int	next_ind_present(t_stack *stack, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:10:42 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 10:08:03 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 15:09:53 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,28 @@ void	ft_free_stack(t_instruct *stack)
 		tmp = NULL;
 	}
 	stack = NULL;
+}
+
+int	max_val_circular_nodes(t_node *node)
+{
+	t_node	*tmp;
+	t_node	*ptr;
+	int		max;
+	int		ind;
+
+	if (!node)
+		return (-1);
+	max = node->val;
+	ind = node->ind;
+	ptr = node->next;
+	while (ptr != node)
+	{
+		if (ptr->val > max)
+		{
+			ind = ptr->ind;
+			max = ptr->val;
+		}
+		ptr = ptr->next;
+	}
+	return (ind);
 }

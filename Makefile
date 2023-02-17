@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/15 11:25:43 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/17 13:52:21 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ DIRSRCS 		= srcs/
 SRCS 			=	$(addsuffix ${FTSRCS},	\
 					$(addprefix ${DIRSRCS},	\
 					main	\
+					utils	\
 					tests	\
+					phases	\
+					find_case	\
 					parsing_1	\
 					parsing_2	\
-					phases	\
 					atoi_def	\
 					converting	\
 					instructions_1	\

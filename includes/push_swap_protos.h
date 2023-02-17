@@ -80,7 +80,7 @@ int			splits_number(size_t len, t_push_swap *vars);
 int			push_elements_in_b(t_stack *stack_a, t_stack *stack_b,
 				t_push_swap *vars);
 int			sort_three(t_stack *stack, t_push_swap *vars);
-int			shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars);
+int			shortest_to_top(t_stack *stack, int ind);
 int			next_ind_present(t_stack *stack, int i);
 int			is_stack_sorted(t_stack *stack);
 
