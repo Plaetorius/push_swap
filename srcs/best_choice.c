@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:47:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 18:55:18 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 19:42:19 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ static int	best_choice(int **tab)
 	return (best_ind);
 }
 
-int	instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
+int	best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 	t_push_swap *vars)
 {
 	int best_ind;
-	int	val;
 
 	if (!stack_a || !stack_b || !tab || !(*tab) || !vars)
 		return (1);

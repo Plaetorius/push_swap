@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 14:21:16 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 19:42:29 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ int	shortest_to_top(t_stack *stack, int ind)
 {
 	size_t	travelled;
 	t_node	*node;
-	int		var;
 
 	node = stack->head;
 	travelled = 0;

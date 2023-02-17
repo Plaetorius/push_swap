@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 18:54:54 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 19:45:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,20 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 
 int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
+	int **tab;
 
-	(void)stack_a;
-	(void)stack_b;
-	(void)vars;
+	ft_printf("Entering Phase 3\n");
+	while (stack_b->len > 0)
+	{
+		ft_printf("Looping bro\n");
+		tab = case_test(stack_a, stack_b, vars);
+		if (!tab)
+			return (ft_printf("Tab is NULL\n"), 1);
+		if (best_instruction_executer(stack_a, stack_b, tab, vars))
+			return (ft_printf("Best Instruct Failed\n"), 1);
+	}
+	return (0);
+}
 	// int	i;
 	// int var;
 
@@ -128,8 +138,6 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	// 		return (ft_printf("Var is 1\n"), 1);
 	// }
 	// instructions_shower(vars->insts);
-	return (0);
-}
 
 void	memory_cleaning(t_push_swap *vars)
 {

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:17:58 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 18:35:31 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 19:52:51 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,24 +96,31 @@ int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	t_node	*node;
 
 	if (!stack_a || !stack_b || !vars)
-		return (NULL);
+		return (ft_printf("Problem in input\n"), NULL);
 	pos = ft_ints(stack_b->len, 2);
 	if (!pos)
-		return (NULL);
+		return (ft_printf("Problem in pos\n"), NULL);
 	i = 0;
 	node = stack_b->head;
-	while (i < stack_b->len)
+	while ((size_t)i < stack_b->len)
 	{
-		if (case_1(stack_a, node, pos + i, vars))
-			return (ft_free_ints(pos), NULL);
-		else if (case_2(stack_a, node,  pos + i, vars))
-			return (ft_free_ints(pos), NULL);
-		else if (case_3(stack_a, node, pos + i, vars))
-			return (ft_free_ints(pos), NULL);
-		else if (case_4(stack_a, node, pos + i, vars))
-			return (ft_free_ints(pos), NULL);
+		if (!(case_1(stack_a, node, pos + i, vars)
+			&& case_2(stack_a, node, pos + i, vars)
+			&& case_3(stack_a, node, pos + i, vars)))
+				;
+		else
+			case_4(stack_a, node, pos + i, vars);
+
 		node = node->next;
 		i++;
 	}
 	return (pos);
 }
+		// if (case_1(stack_a, node, pos + i, vars))
+		// 	return (ft_free_ints(pos), NULL);
+		// else if (case_2(stack_a, node,  pos + i, vars))
+		// 	return (ft_free_ints(pos), NULL);
+		// else if (case_3(stack_a, node, pos + i, vars))
+		// 	return (ft_free_ints(pos), NULL);
+		// else if (case_4(stack_a, node, pos + i, vars))
+		// 	return (ft_free_ints(pos), NULL);
