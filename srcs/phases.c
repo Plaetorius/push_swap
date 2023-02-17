@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 20:30:06 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:54:54 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,17 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 
 int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
-	int	i;
-	int var;
 
-	i = stack_a->len;
-	var = 0;
-	ft_printf("Beginning Phase 3\n");
-	while ((size_t)i < stack_a->len + stack_b->len)
-	{
-		// if (i % 2)
-		// 	rev_rotate(stack_b, vars);
-		var = shortest_to_ind(stack_b, i, vars);
-		var = push(stack_a, stack_b, vars);
-		i++;		
-	}
+	(void)stack_a;
+	(void)stack_b;
+	(void)vars;
+	// int	i;
+	// int var;
+
+	// i = stack_a->len;
+	// var = 0;
+	// ft_printf("Beginning Phase 3\n");
+
 
 	// while (!(is_stack_sorted(stack_a) && stack_b->len == 0))
 	// while (!(stack_b->len == 0)) //Check if A is sorted

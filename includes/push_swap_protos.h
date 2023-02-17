@@ -60,11 +60,12 @@ long		atoi_def(const char *str);
 /* Converting */
 t_node		*convert(int *table, size_t len, t_push_swap *vars);
 
-/* Stack Functions */
+/* Node Functions */
 t_node		*ft_node_new(int val, t_node *next, t_node *prev, int ind);
 void		ft_node_endings(t_node *elem, t_node *next, t_node *prev);
 void		ft_free_circular_nodes(t_node *node);
 void		ft_free_stack(t_instruct *stack);
+int			max_val_circular_nodes(t_node *node);
 
 /* Instructions 1 */
 int			swap(t_stack *stack, t_push_swap *vars);
@@ -99,5 +100,10 @@ int			phase_1(char **av, int ac, t_push_swap *vars);
 int			phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
 int			phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
 void		memory_cleaning(t_push_swap *vars);
+
+/* Utils */
+int			zero_dist_max(int a, int b);
+int			ft_abs(int a);
+
 
 #endif
