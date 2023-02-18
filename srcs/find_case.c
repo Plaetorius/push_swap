@@ -6,30 +6,31 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:17:58 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 19:52:51 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:25:52 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int case_1(t_stack *stack_a, t_node *node , int **pos_element, t_push_swap *vars)
-{
-	int	last_of_a;
-	int	first_of_a;
-	int	elem_of_b;
+// static int case_1(t_stack *stack_a, t_node *node , int **pos_element, t_push_swap *vars)
+// {
+// 	int	last_of_a;
+// 	int	first_of_a;
+// 	int	elem_of_b;
 
-	last_of_a = stack_a->head->prev->val;
-	first_of_a = stack_a->head->val;
-	elem_of_b = node->val;
-	if ((first_of_a < elem_of_b && elem_of_b < last_of_a)
-		|| (last_of_a < elem_of_b && elem_of_b < first_of_a))
-	{
-		(*pos_element)[0] = 0;
-		(*pos_element)[1] = shortest_to_top(vars->stack_b, node->ind);
-		return (0);
-	}
-	return (1);
-}
+// 	last_of_a = stack_a->head->prev->val;
+// 	first_of_a = stack_a->head->val;
+// 	elem_of_b = node->val;
+// 	if ((first_of_a < elem_of_b && elem_of_b < last_of_a)
+// 		|| (last_of_a < elem_of_b && elem_of_b < first_of_a))
+// 	{
+// 		(*pos_element)[0] = 0;
+// 		(*pos_element)[1] = shortest_to_top(vars->stack_b, node->ind);
+// 		ft_printf("Node %d is positive at case 1\n", node->val);
+// 		return (0);
+// 	}
+// 	return (1);
+// }
 
 static int case_2(t_stack *stack_a, t_node *node, int **pos_element, t_push_swap *vars)
 {
@@ -40,11 +41,14 @@ static int case_2(t_stack *stack_a, t_node *node, int **pos_element, t_push_swap
 	tmp = stack_a->head;
 	while ((size_t)i <= stack_a->len / 2)
 	{
+		ft_printf("%d / %d / %d\n", tmp->val, node->val, tmp->next->val);
 		if ((tmp->val < node->val && node->val < tmp->next->val)
 			|| (tmp->next->val < node->val && node->val < tmp->val))
 		{
-			(*pos_element)[0] = i;
+			(*pos_element)[0] = i + 1;
 			(*pos_element)[1] = shortest_to_top(vars->stack_b, node->ind);
+			ft_printf("Node %d is positive at case 2\n", node->val);
+
 			return (0);
 		}
 		tmp = tmp->next;
@@ -67,6 +71,8 @@ static int case_3(t_stack *stack_a, t_node *node, int **pos_element, t_push_swap
 		{
 			(*pos_element)[0] = i - stack_a->len;
 			(*pos_element)[1] = shortest_to_top(vars->stack_b, node->ind);
+			ft_printf("Node %d is positive at case 3\n", node->val);
+
 			return (0);
 		}
 		tmp = tmp->next;
@@ -86,6 +92,8 @@ static int case_4(t_stack *stack_a, t_node *node, int **pos_element, t_push_swap
 	path = shortest_to_top(stack_a, var);
 	(*pos_element)[0] = path;
 	(*pos_element)[1] = shortest_to_top(vars->stack_b, node->ind);
+		ft_printf("Node %d is positive at case 4\n", node->val);
+
 	return (0);
 }
 
@@ -104,8 +112,8 @@ int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	node = stack_b->head;
 	while ((size_t)i < stack_b->len)
 	{
-		if (!(case_1(stack_a, node, pos + i, vars)
-			&& case_2(stack_a, node, pos + i, vars)
+		if (!(
+			 case_2(stack_a, node, pos + i, vars)
 			&& case_3(stack_a, node, pos + i, vars)))
 				;
 		else
@@ -114,9 +122,16 @@ int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		node = node->next;
 		i++;
 	}
+	i = 0;
+	while ((size_t)i < stack_b->len)
+	{
+		ft_printf("Node %d: pos[0] = %d pos[1] = %d\n", node->val, pos[i][0], pos[i][1]);
+		node = node->next;
+		i++;
+	}
 	return (pos);
 }
-		// if (case_1(stack_a, node, pos + i, vars))
+		// if (case_1(stack_a, node, pos + i, vars)) case_1(stack_a, node, pos + i, vars) &&
 		// 	return (ft_free_ints(pos), NULL);
 		// else if (case_2(stack_a, node,  pos + i, vars))
 		// 	return (ft_free_ints(pos), NULL);

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 19:45:32 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/18 15:12:41 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,19 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		push_elements_in_b(stack_a, stack_b, vars);
 	}
 	if (stack_a->len == 0 || stack_a->len == 1)
-		return (0);
+		return (ft_printf("Len Stack A is 1 in Phase 2"), 0);
 	else if (stack_a->len == 2)
 	{
 		if (stack_a->head->ind < stack_a->head->next->ind)
 		{
 			if (rotate(stack_a, vars) == 1)
-				return (1);
+				return (ft_printf("Failed Rotate Stack Len 2\n"), 1);
 		}
 	}
 	else
 	{
-		(void)stack_b;
 		if (sort_three(stack_a, vars) == 1)
-			return (1);
+			return (ft_printf("Failed Sort Three\n"), 1);
 	}
 	ft_printf("Passed Phase 2\n");
 	return (0);

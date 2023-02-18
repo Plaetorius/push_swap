@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 19:42:29 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/18 15:29:38 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	
 	// ft_printf("(Len A/SPLITS)		%d /(LEN A/SPLITS)\n", len_a / SPLITS);
 	// ft_printf("(Len A/SPLITS)*2	%d /(LEN A/SPLITS)*2\n", (len_a / SPLITS) * 2);
-	while (i < len_a)
+	// while (i < len_a)
+	while (stack_a->len > 3)
 	{
 		// ft_printf("I %d /I\n", i);
 		// if (stack_a->head->ind < 3)
@@ -50,7 +51,7 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		}
 		if (val == 1)
 			return (1);
-		i++;
+		// i++;
 	}
 	return (0);
 }
@@ -119,8 +120,8 @@ int	shortest_to_top(t_stack *stack, int ind)
 		node = node->next;
 	}
 	if (travelled < stack->len - travelled)
-		return (travelled);
-	return (-(stack->len - travelled));
+		return (ft_printf("Shortest to top val %d: %d\n", node->val, travelled), travelled);
+	return (ft_printf("Shortest to top val %d: %d\n", node->val, -(stack->len - travelled)), -(stack->len - travelled));
 }
 
 
