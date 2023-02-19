@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/18 15:12:41 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 12:11:04 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		if (sort_three(stack_a, vars) == 1)
 			return (ft_printf("Failed Sort Three\n"), 1);
 	}
-	ft_printf("Passed Phase 2\n");
 	return (0);
 }
 
@@ -79,7 +78,6 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	ft_printf("Entering Phase 3\n");
 	while (stack_b->len > 0)
 	{
-		ft_printf("Looping bro\n");
 		tab = case_test(stack_a, stack_b, vars);
 		if (!tab)
 			return (ft_printf("Tab is NULL\n"), 1);

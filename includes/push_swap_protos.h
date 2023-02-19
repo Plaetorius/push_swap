@@ -111,4 +111,7 @@ int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
 /* Best choice */
 int			best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 				t_push_swap *vars);
+int			maximum_ind_stack(t_stack *stack);
+int			minimum_ind_stack(t_stack *stack);
+
 #endif

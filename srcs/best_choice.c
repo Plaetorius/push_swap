@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:47:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/18 18:29:15 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 14:53:09 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,53 @@ int	best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 		do_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
 	else if (tab[best_ind][1] < 0)
 		do_rev_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
-	if (tab[best_ind][0] > 0)
+	if (tab[best_ind][0] < 0)
 		do_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
-	else if (tab[best_ind][0] < 0)
+	else if (tab[best_ind][0] > 0)
 		do_rev_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
 	push(stack_a, stack_b, vars);
 	ft_free_ints(tab);
 	return (0);
+}
+
+int	maximum_ind_stack(t_stack *stack)
+{
+	size_t	i;
+	int		max;
+	t_node	*node;
+
+	if (!stack)
+		return (-1);
+	i = 1;
+	max = stack->head->ind;
+	node = stack->head->next;
+	while (i < stack->len)
+	{
+		if (node->ind > max)
+			max = node->ind;
+		i++;
+		node = node->next;
+	}
+	return (max);
+}
+
+int	minimum_ind_stack(t_stack *stack)
+{
+	size_t	i;
+	int		min;
+	t_node	*node;
+
+	if (!stack)
+		return (-1);
+	i = 1;
+	min = stack->head->ind;
+	node = stack->head->next;
+	while (i < stack->len)
+	{
+		if (node->ind < min)
+			min = node->ind;
+		i++;
+		node = node->next;
+	}
+	return (min);
 }
