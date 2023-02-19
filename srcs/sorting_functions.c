@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 12:12:52 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:29:00 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,12 @@ int	shortest_to_top(t_stack *stack, int ind)
 		node = node->next;
 	}
 	if (travelled < stack->len - travelled)
-		return (ft_printf("Shortest to top val %d: %d\n", node->val, travelled), travelled);
-	return (ft_printf("Shortest to top val %d: %d\n", node->val, -(stack->len - travelled)), -(stack->len - travelled));
+	// 	return (ft_printf("Shortest to top val %d: %d\n", node->val, travelled), travelled);
+	// return (ft_printf("Shortest to top val %d: %d\n", node->val, -(stack->len - travelled)), -(stack->len - travelled));
+		return (travelled);
+	return (-(stack->len - travelled));
+
+
 }
 
 

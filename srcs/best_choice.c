@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:47:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 14:53:09 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 16:28:02 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,18 @@ int	best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 	if (!stack_a || !stack_b || !tab || !(*tab) || !vars)
 		return (1);
 	best_ind = best_choice(tab);
-	ft_printf("Best Choice 0: %d, Best Choice 1: %d\n", tab[best_ind][0], tab[best_ind][1]);
+	// ft_printf("Best Choice 0: %d, Best Choice 1: %d\n", tab[best_ind][0], tab[best_ind][1]);
 	if (tab[best_ind][1] > 0)
 		do_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
 	else if (tab[best_ind][1] < 0)
 		do_rev_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
+
+
+		
 	if (tab[best_ind][0] < 0)
-		do_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
-	else if (tab[best_ind][0] > 0)
 		do_rev_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
+	else if (tab[best_ind][0] > 0)
+		do_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
 	push(stack_a, stack_b, vars);
 	ft_free_ints(tab);
 	return (0);
@@ -97,4 +100,31 @@ int	minimum_ind_stack(t_stack *stack)
 		node = node->next;
 	}
 	return (min);
+}
+
+int	closest_ind_stack(t_stack *stack, t_node *to_find)
+{
+	size_t	i;
+	int		closest_ind;
+	int		closest_dist;
+	t_node	*node;
+	
+
+	if (!stack || !to_find)
+		return (-1);
+	i = 1;
+	closest_ind = stack->head->ind;
+	closest_dist = ft_abs(closest_ind - to_find->ind);
+	node = stack->head->next;
+	while (i < stack->len)
+	{
+		if (closest_dist > ft_abs(node->ind - to_find->ind))
+		{
+			closest_ind = node->ind;
+			closest_dist = ft_abs(node->ind - to_find->ind);
+		}
+		i++;
+		node = node->next;
+	}
+	return (closest_ind);	
 }
