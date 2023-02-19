@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:47:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 16:28:02 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:23:37 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 	if (!stack_a || !stack_b || !tab || !(*tab) || !vars)
 		return (1);
 	best_ind = best_choice(tab);
-	// ft_printf("Best Choice 0: %d, Best Choice 1: %d\n", tab[best_ind][0], tab[best_ind][1]);
 	if (tab[best_ind][1] > 0)
 		do_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
 	else if (tab[best_ind][1] < 0)

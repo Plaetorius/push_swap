@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 20:34:04 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:18:01 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	splits_number(size_t len, t_push_swap *vars)
 	if (len < 101)
 		vars->splits = 3;
 	else if (len < 301)
-		vars->splits = 4;
+		vars->splits = 3;
 	else if (len < 501)
 		vars->splits = 3;
 	return (0);

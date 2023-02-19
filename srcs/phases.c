@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 12:11:04 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:28:22 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
 	int **tab;
 
-	ft_printf("Entering Phase 3\n");
 	while (stack_b->len > 0)
 	{
 		tab = case_test(stack_a, stack_b, vars);
@@ -86,55 +85,6 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	}
 	return (0);
 }
-	// int	i;
-	// int var;
-
-	// i = stack_a->len;
-	// var = 0;
-	// ft_printf("Beginning Phase 3\n");
-
-
-	// while (!(is_stack_sorted(stack_a) && stack_b->len == 0))
-	// while (!(stack_b->len == 0)) //Check if A is sorted
-	// {
-	// 	if (stack_b->len > 0)
-	// 	{
-			
-	// 		var = push(stack_a, stack_b, vars);
-	// 	}
-	// 	if (stack_a->head->ind != i && stack_b->len > 0)
-	// 	{
-	// 		var = rotate(stack_a, vars);
-	// 		ft_printf("Value of Var after rotate %d\n", var);
-	// 	}
-	// 	else
-	// 	{
-	// 		while ((size_t)i < stack_a->len && next_ind_present(stack_a, i))
-	// 			var = shortest_to_ind(stack_a, ++i, vars);
-	// 		ft_printf("Value of Var after next ind present %d\n", var);
-	// 	}
-	// 	if (var)
-	// 		return (ft_printf("Var is 1\n"), 1);
-	// }
-	
-	// while (!(stack_b->len == 0)) //Check if A is sorted
-	// {							
-	// 	}
-	// 	if (stack_a->head->ind != i && stack_b->len > 0)
-	// 	{
-	// 		var = rotate(stack_a, vars);
-	// 		ft_printf("Value of Var after rotate %d\n", var);
-	// 	}
-	// 	else
-	// 	{
-	// 		while ((size_t)i < stack_a->len && next_ind_present(stack_a, i))
-	// 			var = shortest_to_ind(stack_a, ++i, vars);
-	// 		ft_printf("Value of Var after next ind present %d\n", var);
-	// 	}
-	// 	if (var)
-	// 		return (ft_printf("Var is 1\n"), 1);
-	// }
-	// instructions_shower(vars->insts);
 
 void	memory_cleaning(t_push_swap *vars)
 {

@@ -6,13 +6,13 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:04:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 18:33:37 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:33:54 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	atoi_def(const char *str)
+long	atoi_def(const char *str, int *val)
 {
 	long	nb;
 	int		i;
@@ -33,16 +33,12 @@ long	atoi_def(const char *str)
 	while ('0' <= str[i] && str[i] <= '9')
 	{
 		nb = nb * 10 + str[i] - '0';
+		if (nb > INT_MAX || 0 - nb < INT_MIN)
+			return (1);
 		i++;
 	}
 	if (is_neg)
-		return (-nb);
-	return (nb);
+		*val = -nb;
+	else
+		*val = nb;
 }
-
-// int main(int ac, char **av)
-// {
-// 	(void) ac;
-// 	printf("%d\n", atoi(av[1]));
-// 	printf("%d\n", ft_atoi(av[1]));
-// }

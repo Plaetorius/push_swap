@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:41:07 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 16:00:07 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:22:51 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,6 @@ int	main(int ac, char **av)
 	if (phase_3(vars.stack_a, vars.stack_b, &vars) == 1)
 		return (memory_cleaning(&vars), EXIT_FAILURE);
 	instructions_shower(vars.insts);
-	// print_stack(&stack_a);
-
 	memory_cleaning(&vars);
 	return (EXIT_SUCCESS);
 }
-/*
-	test_01();
-	test_02();
-	test_03();
-	test_04();
-	test_05();
-	test_06();
-	test_07();
-	test_08();
-	test_09();
-	test_10();
-	test_11();
-	test_12();
-	test_13();
-	test_14();
-	test_15();
-	test_16();
-	test_17();
-	test_18();
-*/

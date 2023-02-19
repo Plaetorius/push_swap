@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 15:29:00 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:22:16 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,38 +20,21 @@ int	push_elements_in_b(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 
 	len_a = (int)stack_a->len;
 	i = 0;
-	// ft_printf("\n\n\nLen A %d /Len A\n", len_a);
-	
-	// ft_printf("(Len A/SPLITS)		%d /(LEN A/SPLITS)\n", len_a / SPLITS);
-	// ft_printf("(Len A/SPLITS)*2	%d /(LEN A/SPLITS)*2\n", (len_a / SPLITS) * 2);
-	// while (i < len_a)
 	while (stack_a->len > (size_t)(len_a / vars->splits) && stack_a->len > 3)
 	{
-		// ft_printf("I %d /I\n", i);
-		// if (stack_a->head->ind < 3)
-		// {
-		// 	// ft_printf("Small Ind Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
-		// 	val = rotate(stack_a, vars);
-		// }
 		if (stack_a->head->ind < len_a / vars->splits)
-		{
-			// ft_printf("Rotated Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = rotate(stack_a, vars);
-		}
 		else if (stack_a->head->ind >= len_a / vars->splits
 			&& stack_a->head->ind < ((len_a / vars->splits) * 2))
 		{
-			// ft_printf("Pushed Val:		%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = push(stack_b, stack_a, vars);
 		}
 		else if (stack_a->head->ind >= ((len_a / vars->splits) * 2))
 		{
-			// ft_printf("Push Bottom-ed Val:	%d of Rank:	%d\n", stack_a->head->val, stack_a->head->ind);  
 			val = push_bottom(stack_b, stack_a, vars);
 		}
 		if (val == 1)
 			return (1);
-		// i++;
 	}
 	return (0);
 }
@@ -85,28 +68,6 @@ int	sort_three(t_stack *stack, t_push_swap *vars)
 	return (1);
 }
 
-// int	shortest_to_ind(t_stack *stack, int ind, t_push_swap *vars)
-// {
-// 	size_t	travelled;
-// 	t_node	*node;
-// 	int		var;
-
-// 	node = stack->head;
-// 	travelled = 0;
-// 	while (travelled < stack->len && node->ind != ind)
-// 	{
-// 		travelled++;
-// 		node = node->next;
-// 	}
-// 	if (travelled < stack->len - travelled)
-// 		var = do_rotate(stack, travelled, vars);
-// 	else
-// 		var = do_rev_rotate(stack, stack->len - travelled, vars);
-// 	if (var == 1)
-// 		return (1);
-// 	return (0);
-// }
-
 int	shortest_to_top(t_stack *stack, int ind)
 {
 	size_t	travelled;
@@ -120,14 +81,9 @@ int	shortest_to_top(t_stack *stack, int ind)
 		node = node->next;
 	}
 	if (travelled < stack->len - travelled)
-	// 	return (ft_printf("Shortest to top val %d: %d\n", node->val, travelled), travelled);
-	// return (ft_printf("Shortest to top val %d: %d\n", node->val, -(stack->len - travelled)), -(stack->len - travelled));
 		return (travelled);
 	return (-(stack->len - travelled));
-
-
 }
-
 
 int	next_ind_present(t_stack *stack, int i)
 {

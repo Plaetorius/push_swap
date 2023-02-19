@@ -55,7 +55,7 @@ int			get_arg_number(char *arg, int **table, int *current);
 
 
 /* Atoi Def */
-long		atoi_def(const char *str);
+long		atoi_def(const char *str, int *val);
 
 /* Converting */
 t_node		*convert(int *table, size_t len, t_push_swap *vars);
