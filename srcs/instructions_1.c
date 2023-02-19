@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:08:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 20:22:53 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 18:38:15 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ int	swap(t_stack *stack, t_push_swap *vars)
 {
 	t_node	*third;
 	t_node	*first;
-	int test;
 
 	if (!stack || !(stack->head) || !vars || stack->len == 1)
 		return (1);
@@ -108,6 +107,5 @@ int	swap(t_stack *stack, t_push_swap *vars)
 		third->prev = stack->head;
 		stack->head = first;
 	}
-	test = swap_aux(stack, first, vars);
-	return (test);
+	return (swap_aux(stack, first, vars));
 }

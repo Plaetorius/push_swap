@@ -94,7 +94,7 @@ void		instructions_shower(t_instruct *stack);
 /* Do Instructions */
 int			do_rotate(t_stack *stack, int times, t_push_swap *vars);
 int			do_rev_rotate(t_stack *stack, int times, t_push_swap *vars);
-
+int			turn_correctly(t_stack *stack, t_push_swap *vars);
 /* Phases */
 int			phase_1(char **av, int ac, t_push_swap *vars);
 int			phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);

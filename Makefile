@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/17 18:12:49 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/19 18:38:29 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,18 +36,7 @@ INCLUDES		= -Iincludes
 LIBFTDIR		= libft
 LIBFTLIB		= -lft
 CC				= cc
-
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-#=============================== ADD -WERROR
-
-FLAGS			= -Wall -Wextra
+FLAGS			= -Wall -Wextra -Werror
 OBJS			= ${SRCS:.c=.o}
 RM				= rm -rf
 RED				= \033[1;31m

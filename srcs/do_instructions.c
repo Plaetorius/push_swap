@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:31:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/13 10:08:43 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 18:45:35 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ int	do_rev_rotate(t_stack *stack, int times, t_push_swap *vars)
 		i++;
 	}
 	return (0);
+}
+
+int	turn_correctly(t_stack *stack, t_push_swap *vars)
+{
+	int	to_top;
+
+	to_top = shortest_to_top(stack, stack->len - 1);
+	if (to_top < 0)
+		return (do_rev_rotate(stack, ft_abs(to_top), vars));
+	return (do_rotate(stack, to_top, vars));
 }

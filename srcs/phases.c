@@ -6,27 +6,11 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:28:22 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 18:43:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	initialisation(t_push_swap *vars)
-{
-	t_stack	stack_a;
-	t_stack	stack_b;
-	t_instruct	*instructs;
-	
-	stack_a.head = NULL;
-	stack_a.len = 0;
-	stack_b.head = NULL;
-	stack_b.len = 0;	
-	instructs = NULL;
-	vars->stack_a = &stack_a;
-	vars->stack_b = &stack_b;
-	vars->insts = instructs;
-}
 
 int	phase_1(char **av, int ac, t_push_swap *vars)
 {
@@ -51,6 +35,8 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
 	while (stack_a->len > 3)
 	{
+		if (vars->splits > 2)
+			vars->splits -= 1;
 		push_elements_in_b(stack_a, stack_b, vars);
 	}
 	if (stack_a->len == 0 || stack_a->len == 1)
@@ -83,6 +69,8 @@ int	phase_3(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 		if (best_instruction_executer(stack_a, stack_b, tab, vars))
 			return (ft_printf("Best Instruct Failed\n"), 1);
 	}
+	if (turn_correctly(stack_a, vars))
+		return (ft_printf("Failed to align correctly\n"), 1);
 	return (0);
 }
 

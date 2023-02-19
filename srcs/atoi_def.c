@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:04:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:33:54 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:47:03 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,17 @@ long	atoi_def(const char *str, int *val)
 	while ('0' <= str[i] && str[i] <= '9')
 	{
 		nb = nb * 10 + str[i] - '0';
-		if (nb > INT_MAX || 0 - nb < INT_MIN)
+		if ((nb > INT_MAX && !is_neg) || INT_MIN > -nb)
+		{
+		ft_printf("%d", -nb);
 			return (1);
+			
+		}
 		i++;
 	}
 	if (is_neg)
 		*val = -nb;
 	else
 		*val = nb;
+	return (0);
 }
