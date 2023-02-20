@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 12:24:03 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:22:16 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:47:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	next_ind_present(t_stack *stack, int i)
 int	is_stack_sorted(t_stack *stack)
 {
 	t_node	*node;
-	size_t		i;
+	size_t	i;
 
 	node = stack->head;
 	i = 0;

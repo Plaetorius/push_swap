@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:44:21 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 15:56:53 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:43:16 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_instruct	*new_cleaned_instruct(int val, t_instruct *head)
 	if (!instruct)
 		return (NULL);
 	instruct->val = val;
-	instruct->next = NULL;	
+	instruct->next = NULL;
 	tmp = head;
 	if (head == NULL)
 		head = instruct;
@@ -58,15 +58,8 @@ t_instruct	*new_cleaned_instruct(int val, t_instruct *head)
 	return (head);
 }
 
-
-void	instructions_shower(t_instruct *stack)
+void	instructions_shower_aux(t_instruct *stack)
 {
-	t_instruct *tmp;
-	
-	stack = instruction_optimizer(stack);
-	if (!stack)
-		return ;
-	tmp = stack;
 	while (stack)
 	{
 		if (stack->val == PUSH_A)
@@ -91,5 +84,13 @@ void	instructions_shower(t_instruct *stack)
 			ft_printf("rrr\n");
 		stack = stack->next;
 	}
-	ft_free_stack(tmp);
+}
+
+void	instructions_shower(t_instruct *stack)
+{
+	stack = instruction_optimizer(stack);
+	if (!stack)
+		return ;
+	instructions_shower_aux(stack);
+	ft_free_stack(stack);
 }

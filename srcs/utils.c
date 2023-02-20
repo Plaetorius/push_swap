@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:36:50 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 14:22:22 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:48:43 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 static int	same_sign(int a, int b)
 {
-    return ((a < 0 && b < 0) || (a >= 0 && b >= 0));  
+	return ((a < 0 && b < 0) || (a >= 0 && b >= 0));
 }
 
-int minimum(int a, int b)
+int	minimum(int a, int b)
 {
 	if (a > b)
 		return (b);
 	return (a);
 }
 
-static int maximum(int a, int b)
+static int	maximum(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
 
-
-int ft_abs(int a)
+int	ft_abs(int a)
 {
 	if (a == INT_MIN)
 		return (INT_MAX);
@@ -41,7 +40,7 @@ int ft_abs(int a)
 	return (a);
 }
 
-int zero_dist_max(int a, int b)
+int	zero_dist_max(int a, int b)
 {
 	if (same_sign(a, b))
 	{
@@ -50,5 +49,4 @@ int zero_dist_max(int a, int b)
 		return (ft_abs(maximum(a, b)));
 	}
 	return (ft_abs(a) + ft_abs(b));
-	
 }

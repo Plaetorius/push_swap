@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 15:39:32 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:46:28 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	numbers_counter(char *arg, int *numbers_count)
 		if (strs[i][j] != '\0')
 			return (1);
 		(*numbers_count)++;
-		i++;	
+		i++;
 	}
 	ft_free_strs(strs);
 	return (0);
