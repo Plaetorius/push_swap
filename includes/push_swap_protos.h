@@ -89,6 +89,7 @@ int			is_stack_sorted(t_stack *stack);
 int			new_instruct(int val, t_push_swap *vars);
 void		stack_association(t_stack *stack_a, t_stack *stack_b,
 				t_push_swap *vars);
+t_instruct	*new_cleaned_instruct(int val, t_instruct *head);
 void		instructions_shower(t_instruct *stack);
 
 /* Do Instructions */
@@ -115,5 +116,8 @@ int			best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 int			maximum_ind_stack(t_stack *stack);
 int			minimum_ind_stack(t_stack *stack);
 int			closest_ind(t_stack *stack, t_node *to_find);
+
+/* Instructions Optimizer */
+t_instruct	*instruction_optimizer(t_instruct *stack);
 
 #endif

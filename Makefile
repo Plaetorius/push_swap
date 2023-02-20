@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/19 18:38:29 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/20 15:56:21 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					nodes_functions \
 					do_instructions	\
 					sorting_functions	\
+					instructions_optimizer	\
 					instruction_functions	\
 					))
 INCLUDES		= -Iincludes

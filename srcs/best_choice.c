@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:47:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 15:26:41 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:43:14 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	best_choice(int **tab)
 	int	best_ind;
 	int	best_val;
 	int	tmp;
-	
+
 	best_ind = 0;
 	best_val = zero_dist_max(tab[0][0], tab[0][1]);
 	i = 1;
@@ -38,7 +38,7 @@ static int	best_choice(int **tab)
 int	best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 	t_push_swap *vars)
 {
-	int best_ind;
+	int	best_ind;
 
 	if (!stack_a || !stack_b || !tab || !(*tab) || !vars)
 		return (1);
@@ -104,7 +104,6 @@ int	closest_ind(t_stack *stack, t_node *to_find)
 	int		closest_ind;
 	int		closest_dist;
 	t_node	*node;
-	
 
 	if (!stack || !to_find)
 		return (-1);
@@ -122,5 +121,5 @@ int	closest_ind(t_stack *stack, t_node *to_find)
 		i++;
 		node = node->next;
 	}
-	return (closest_ind);	
+	return (closest_ind);
 }

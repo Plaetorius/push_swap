@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:07:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 12:00:23 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:43:36 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ static t_node	*initialize(size_t len, int *tab, t_node *node,
 	{
 		node->next = ft_node_new(tab[i], NULL, node, -1);
 		if (!node->next)
-		{
-			
 			return (ft_free_circular_nodes(node->next), NULL);
-		}
-			
 		node = node->next;
 		++i;
 	}
