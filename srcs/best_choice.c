@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:47:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:23:37 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:26:41 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,14 @@ int	best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 	if (!stack_a || !stack_b || !tab || !(*tab) || !vars)
 		return (1);
 	best_ind = best_choice(tab);
-	if (tab[best_ind][1] > 0)
-		do_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
-	else if (tab[best_ind][1] < 0)
-		do_rev_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
-
-
-		
 	if (tab[best_ind][0] < 0)
 		do_rev_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
 	else if (tab[best_ind][0] > 0)
 		do_rotate(stack_a, ft_abs(tab[best_ind][0]), vars);
+	if (tab[best_ind][1] > 0)
+		do_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
+	else if (tab[best_ind][1] < 0)
+		do_rev_rotate(stack_b, ft_abs(tab[best_ind][1]), vars);
 	push(stack_a, stack_b, vars);
 	ft_free_ints(tab);
 	return (0);
@@ -101,7 +98,7 @@ int	minimum_ind_stack(t_stack *stack)
 	return (min);
 }
 
-int	closest_ind_stack(t_stack *stack, t_node *to_find)
+int	closest_ind(t_stack *stack, t_node *to_find)
 {
 	size_t	i;
 	int		closest_ind;

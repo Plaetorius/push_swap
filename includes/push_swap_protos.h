@@ -104,6 +104,7 @@ void		memory_cleaning(t_push_swap *vars);
 /* Utils */
 int			zero_dist_max(int a, int b);
 int			ft_abs(int a);
+int 		minimum(int a, int b);
 
 /* Find Case */
 int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars);
@@ -113,6 +114,6 @@ int			best_instruction_executer(t_stack *stack_a, t_stack *stack_b, int **tab,
 				t_push_swap *vars);
 int			maximum_ind_stack(t_stack *stack);
 int			minimum_ind_stack(t_stack *stack);
-int			closest_ind_stack(t_stack *stack, t_node *to_find);
+int			closest_ind(t_stack *stack, t_node *to_find);
 
 #endif

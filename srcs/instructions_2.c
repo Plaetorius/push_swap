@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:18:01 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:06:04 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,14 @@ int	splits_number(size_t len, t_push_swap *vars)
 	else if (len < 501)
 		vars->splits = 3;
 	return (0);
+}
+
+void	stack_association(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
+{
+	if (!vars)
+		return ;
+	if (stack_a)
+		vars->stack_a = stack_a;
+	if (stack_b)
+		vars->stack_b = stack_b;
 }

@@ -6,11 +6,23 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:04:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:47:03 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:41:49 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	aux_atoi_def(const char *str, long *nb, int is_neg, int i)
+{
+	while ('0' <= str[i] && str[i] <= '9')
+	{
+		*nb = *nb * 10 + str[i] - '0';
+		if (((*nb > INT_MAX && !is_neg) || INT_MIN > -(*nb)))
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 long	atoi_def(const char *str, int *val)
 {
@@ -30,17 +42,8 @@ long	atoi_def(const char *str, int *val)
 	}
 	else if (str[i] == '+')
 		i++;
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		nb = nb * 10 + str[i] - '0';
-		if ((nb > INT_MAX && !is_neg) || INT_MIN > -nb)
-		{
-		ft_printf("%d", -nb);
-			return (1);
-			
-		}
-		i++;
-	}
+	if (aux_atoi_def(str, &nb, is_neg, i))
+		return (1);
 	if (is_neg)
 		*val = -nb;
 	else

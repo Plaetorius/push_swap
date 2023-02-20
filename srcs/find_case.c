@@ -6,13 +6,14 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:17:58 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 17:23:27 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:29:47 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int case_1(t_stack *stack_a, t_node *node , int **pos_elem, t_push_swap *vars)
+static int	case_1(t_stack *stack_a, t_node *node, int **pos_elem,
+	t_push_swap *vars)
 {
 	if (node->ind == 0)
 	{
@@ -20,21 +21,17 @@ static int case_1(t_stack *stack_a, t_node *node , int **pos_elem, t_push_swap *
 		(*pos_elem)[1] = shortest_to_top(vars->stack_b, node->ind);
 		return (0);
 	}
-	return (1);
-}
-
-static int case_2(t_stack *stack_a, t_node *node, int **pos_elem, t_push_swap *vars)
-{
 	if (node->ind == (int)(stack_a->len + vars->stack_b->len - 1))
 	{
 		(*pos_elem)[0] = shortest_to_top(stack_a, maximum_ind_stack(stack_a));
 		(*pos_elem)[1] = shortest_to_top(vars->stack_b, node->ind);
 		return (0);
 	}
-	return (1);	
+	return (1);
 }
 
-static int case_3(t_stack *stack_a, t_node *node, int **pos_elem, t_push_swap *vars)
+static int	case_2(t_stack *stack_a, t_node *node, int **pos_elem,
+	t_push_swap *vars)
 {
 	size_t	i;
 	t_node	*tmp;
@@ -61,7 +58,8 @@ static int case_3(t_stack *stack_a, t_node *node, int **pos_elem, t_push_swap *v
 	return (1);
 }
 
-static int case_4(t_stack *stack_a, t_node *node, int **pos_elem, t_push_swap *vars)
+static int	case_3(t_stack *stack_a, t_node *node, int **pos_elem,
+	t_push_swap *vars)
 {
 	size_t	i;
 	t_node	*tmp;
@@ -79,17 +77,10 @@ static int case_4(t_stack *stack_a, t_node *node, int **pos_elem, t_push_swap *v
 		i--;
 		tmp = tmp->prev;
 	}
-	return (1);	
+	return (1);
 }
 
-static int case_5(t_stack *stack_a, t_node *node, int **pos_elem, t_push_swap *vars)
-{
-	(*pos_elem)[0] = shortest_to_top(stack_a, closest_ind_stack(stack_a, node));
-	(*pos_elem)[1] = shortest_to_top(vars->stack_b, node->ind);
-	return (0);	
-}
-
-int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
+int	**case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
 	int		**pos;
 	int		i;
@@ -100,28 +91,20 @@ int **case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	pos = ft_ints(stack_b->len, 2);
 	if (!pos)
 		return (ft_printf("Problem in pos\n"), NULL);
-	i = 0;
+	i = -1;
 	node = stack_b->head;
-	while ((size_t)i < stack_b->len)
+	while ((size_t)++i < stack_b->len)
 	{
-		if (!case_1(stack_a, node, pos + i, vars))
-			;
-		else if (!case_2(stack_a, node, pos + i, vars))
-			;
-		else if (!case_3(stack_a, node, pos + i, vars))
-			;
-		else if (!case_4(stack_a, node, pos + i, vars))
+		if (!(case_1(stack_a, node, pos + i, vars)
+				&& case_2(stack_a, node, pos + i, vars)
+				&& case_3(stack_a, node, pos + i, vars)))
 			;
 		else
-			case_5(stack_a, node, pos + i, vars);
+		{
+			pos[i][0] = shortest_to_top(stack_a, closest_ind(stack_a, node));
+			pos[i][1] = shortest_to_top(vars->stack_b, node->ind);
+		}
 		node = node->next;
-		i++;
-	}
-	i = 0;
-	while ((size_t)i < stack_b->len)
-	{
-		node = node->next;
-		i++;
 	}
 	return (pos);
 }
