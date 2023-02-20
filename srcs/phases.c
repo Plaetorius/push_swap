@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/19 18:43:32 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 10:52:41 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	phase_2(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 {
 	while (stack_a->len > 3)
 	{
-		if (vars->splits > 2)
-			vars->splits -= 1;
+		// if (vars->splits > 2)
+		// 	vars->splits -= 1;
 		push_elements_in_b(stack_a, stack_b, vars);
 	}
 	if (stack_a->len == 0 || stack_a->len == 1)

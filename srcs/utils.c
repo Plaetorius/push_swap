@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:36:50 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 18:19:55 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 10:59:10 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	same_sign(int a, int b)
 {
 	if (a * b < 0)
-		return (1);
-	return (0);	
+		return (0);
+	return (1);	
 }
 
 int minimum(int a, int b)
