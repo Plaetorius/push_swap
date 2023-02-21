@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 15:40:17 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/12 15:50:52 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:49:30 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	*ft_rev_int_tab(int *tab, size_t len)
 {
 	int		tmp;
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	while (i < len / 2)

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:40:41 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/16 20:27:58 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:50:58 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_push_swap
 	t_stack				*stack_a;
 	t_stack				*stack_b;
 	t_instruct			*insts;
-	int		splits;
+	int					splits;
 }	t_push_swap;
 
 #endif

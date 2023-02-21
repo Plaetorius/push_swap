@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/21 13:28:18 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/21 15:55:29 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,13 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					instructions_optimizer	\
 					instruction_functions	\
 					))
-DIRBONUS		= srcs/checker/
+DIRBONUS		= srcs/bonus/
 BONUS			=	$(addsuffix ${FTSRCS},		\
 					$(addprefix ${DIRBONUS},	\
 					main						\
+					free_checker_lst			\
 					))
+BONUSOBJS		= ${BONUS:.c=.o}
 INCLUDES		= -Iincludes
 LIBFTDIR		= libft
 LIBFTLIB		= -lft
@@ -66,6 +68,9 @@ sanitize: ${OBJS} ${LIBFTDIR}/libft.a
 
 ${LIBFTDIR}/libft.a:
 	@make -C ${LIBFTDIR}
+
+bonus: ${BONUSOBJS} ${LIBFTDIR}/libft.a
+	@${CC} ${BONUSOBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o checker -g3
 
 safe:
 	git add .

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:44:21 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 16:43:16 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:25:07 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	new_instruct(int val, t_push_swap *vars)
 
 	instruct = malloc(sizeof(t_instruct));
 	if (!instruct)
-		return (1);
+		return (write(2, "Error\n", 6), 1);
 	instruct->val = val;
 	instruct->next = NULL;
 	tmp = vars->insts;
@@ -42,7 +42,7 @@ t_instruct	*new_cleaned_instruct(int val, t_instruct *head)
 
 	instruct = malloc(sizeof(t_instruct));
 	if (!instruct)
-		return (NULL);
+		return (write(2, "Error\n", 6), NULL);
 	instruct->val = val;
 	instruct->next = NULL;
 	tmp = head;

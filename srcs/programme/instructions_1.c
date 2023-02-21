@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:08:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 16:44:01 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:24:54 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_node	*aux_push(t_stack *receiver, t_stack *sender)
 {
 	t_node	*node;
 	t_node	*tmp;
-	t_node	*second;	
+	t_node	*second;
 
 	tmp = sender->head;
 	second = sender->head->next;
@@ -47,7 +47,7 @@ int	push(t_stack *receiver, t_stack *sender, t_push_swap *vars)
 	t_node		*tmp;
 
 	if (!sender || !(sender->head) || !vars || sender->len == 0)
-		return (ft_printf("Taking first exit\n"), 1);
+		return (1);
 	node = aux_push(receiver, sender);
 	if (!node)
 		return (1);

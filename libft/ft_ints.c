@@ -6,17 +6,17 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:42:19 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/17 13:45:47 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:50:12 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int **ft_ints(int len_tab, int len_tabs)
+int	**ft_ints(int len_tab, int len_tabs)
 {
 	int	i;
 	int	**tab;
-	
+
 	tab = malloc(sizeof(int *) * (len_tab + 1));
 	if (!tab)
 		return (NULL);

@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_int_tab_sorted.c                             :+:      :+:    :+:   */
+/*   push_swap_checker.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 17:02:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 15:50:29 by tgernez          ###   ########.fr       */
+/*   Created: 2023/02/21 14:19:31 by tgernez           #+#    #+#             */
+/*   Updated: 2023/02/21 15:56:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_CHECKER_H
+# define PUSH_SWAP_CHECKER_H
+# include "libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+void	free_checker_lst(t_list *head);
 
-int	ft_is_int_tab_sorted(int *tab, size_t len)
-{
-	size_t	i;
-
-	if (!tab)
-		return (0);
-	i = 0;
-	while (i < len - 1)
-	{
-		if (tab[i] > tab[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
+#endif

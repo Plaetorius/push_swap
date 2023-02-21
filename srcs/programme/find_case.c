@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:17:58 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 15:29:47 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:12:58 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ int	**case_test(t_stack *stack_a, t_stack *stack_b, t_push_swap *vars)
 	t_node	*node;
 
 	if (!stack_a || !stack_b || !vars)
-		return (ft_printf("Problem in input\n"), NULL);
+		return (NULL);
 	pos = ft_ints(stack_b->len, 2);
 	if (!pos)
-		return (ft_printf("Problem in pos\n"), NULL);
+		return (NULL);
 	i = -1;
 	node = stack_b->head;
 	while ((size_t)++i < stack_b->len)

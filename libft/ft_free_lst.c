@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_int_tab_sorted.c                             :+:      :+:    :+:   */
+/*   ft_free_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 17:02:12 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 15:50:29 by tgernez          ###   ########.fr       */
+/*   Created: 2023/02/21 15:38:02 by tgernez           #+#    #+#             */
+/*   Updated: 2023/02/21 15:49:12 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_is_int_tab_sorted(int *tab, size_t len)
+void	ft_free_lst(t_list *head)
 {
-	size_t	i;
+	t_list	*ptr;
+	t_list	*tmp;
 
-	if (!tab)
-		return (0);
-	i = 0;
-	while (i < len - 1)
+	if (!head)
+		return ;
+	ptr = head;
+	while (ptr != NULL)
 	{
-		if (tab[i] > tab[i + 1])
-			return (0);
-		i++;
+		tmp = ptr;
+		ptr = ptr->next;
+		free(tmp);
+		tmp = NULL;
 	}
-	return (1);
+	head = NULL;
 }
