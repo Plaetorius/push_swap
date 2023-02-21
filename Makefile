@@ -6,18 +6,17 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/20 15:56:21 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/21 13:28:18 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 FTSRCS			= .c
-DIRSRCS 		= srcs/
+DIRSRCS 		= srcs/programme/
 SRCS 			=	$(addsuffix ${FTSRCS},	\
 					$(addprefix ${DIRSRCS},	\
 					main	\
 					utils	\
-					tests	\
 					phases	\
 					find_case	\
 					parsing_1	\
@@ -32,6 +31,11 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					sorting_functions	\
 					instructions_optimizer	\
 					instruction_functions	\
+					))
+DIRBONUS		= srcs/checker/
+BONUS			=	$(addsuffix ${FTSRCS},		\
+					$(addprefix ${DIRBONUS},	\
+					main						\
 					))
 INCLUDES		= -Iincludes
 LIBFTDIR		= libft

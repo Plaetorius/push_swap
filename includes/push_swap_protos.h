@@ -15,44 +15,11 @@
 # include "push_swap.h"
 # include "push_swap_structs.h"
 
-/* Tests */
-void		test_01(void);
-void		test_02(void);
-void		test_03(void);
-void		test_04(void);
-void		test_05(void);
-void		test_06(void);
-void		test_07(void);
-void		test_08(void);
-void		test_09(void);
-void		test_10(void);
-void		test_11(void);
-void		test_12(void);
-void		test_13(void);
-void		test_14(void);
-void		test_15(void);
-void		test_16(void);
-void		test_17(void);
-void		test_18(void);
-void		test_19(void);
-void		test_20(void);
-void		test_21(void);
-void		test_22(void);
-void		test_23(void);
-void		test_24(void);
-void		test_25(void);
-void		test_26(void);
-void		test_27(void);
-void		test_28(void);
-void		stack_burner_ind(t_node *node);
-void		print_stack(t_stack *stack);
-void		stack_burner(t_node *node);
-
 /*	Parsing	1*/
 int			*parsing(int ac, char **av, t_push_swap *vars);
+
 /*	Parsing 2*/
 int			get_arg_number(char *arg, int **table, int *current);
-
 
 /* Atoi Def */
 long		atoi_def(const char *str, int *val);
