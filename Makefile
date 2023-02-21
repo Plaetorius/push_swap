@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/21 15:55:29 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/21 18:41:52 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,14 @@ SRCS 			=	$(addsuffix ${FTSRCS},	\
 					instruction_functions	\
 					))
 DIRBONUS		= srcs/bonus/
-BONUS			=	$(addsuffix ${FTSRCS},		\
+BONUS			=	$(addsuffix ${FTSRCS},	\
 					$(addprefix ${DIRBONUS},	\
-					main						\
-					free_checker_lst			\
-					))
+					main	\
+					parsing_1	\
+					parsing_2	\
+					free_checker_lst	\
+					))	\
+					srcs/programme/atoi_def.c
 BONUSOBJS		= ${BONUS:.c=.o}
 INCLUDES		= -Iincludes
 LIBFTDIR		= libft
@@ -82,12 +85,19 @@ safe:
 clean:
 	@echo "${CYAN}Cleaned ${NAME}${NC}"
 	@${RM} ${OBJS}
-
 fclean:		clean
 	@echo "${CYAN}FCleaned ${NAME}${NC}"
 	@${RM} ${NAME}
 
 re: fclean all
+
+bonus_clean:
+	@${RM} ${BONUSOBJS}
+
+bonus_fclean: bonus_clean
+	@${RM} checker
+
+bonus_re: bonus_fclean bonus
 
 #----------------------------LIBFT
 
@@ -110,7 +120,7 @@ all_clean: clean libft_clean
 
 all_fclean: fclean libft_fclean
 
-all_re: libft_re fclean all
+all_re: libft_re bonus_re re
 	@echo "${CYAN}Re-ed ${NAME}${NC}"
 
 re: fclean all

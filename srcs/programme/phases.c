@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 14:13:27 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:43:50 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	phase_1(char **av, int ac, t_push_swap *vars)
 	if (!node)
 		return (free(table), 1);
 	vars->stack_a->head = node;
-	splits_number(vars->stack_a->len, vars);
 	free(table);
 	return (0);
 }

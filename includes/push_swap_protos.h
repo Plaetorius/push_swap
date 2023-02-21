@@ -42,7 +42,6 @@ int			push(t_stack *receiver, t_stack *sender, t_push_swap *vars);
 int			rotate(t_stack *stack, t_push_swap *vars);
 int			rev_rotate(t_stack *stack, t_push_swap *vars);
 int			push_bottom(t_stack *receiver, t_stack *sender, t_push_swap *vars);
-int			splits_number(size_t len, t_push_swap *vars);
 
 /* Sorting Functions */
 int			push_elements_in_b(t_stack *stack_a, t_stack *stack_b,
