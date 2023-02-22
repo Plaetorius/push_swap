@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/22 12:05:09 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/22 13:03:46 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,16 +69,16 @@ all: ${NAME}
 	@echo "${LGREEN}Successfully created${NC}${CYAN} ${NAME}${NC}${LGREEN}!${NC}"
 
 ${NAME}: ${OBJS} ${LIBFTDIR}/libft.a
-	@${CC} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o $@ -g3
+	@${CC} ${FLAGS} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o $@ -g3
 
 sanitize: ${OBJS} ${LIBFTDIR}/libft.a
-	@${CC} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o push_swap -g3 -fsanitize=address
+	@${CC} ${FLAGS} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o push_swap -g3 -fsanitize=address
 
 ${LIBFTDIR}/libft.a:
 	@make -C ${LIBFTDIR}
 
 bonus: ${BONUSOBJS} ${LIBFTDIR}/libft.a
-	@${CC} ${BONUSOBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o checker -g3
+	@${CC} ${FLAGS} ${BONUSOBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o checker -g3
 
 safe:
 	git add .
@@ -121,15 +121,12 @@ libft_re:
 
 #----------------------------ALL
 
-all_clean: clean libft_clean
+all_clean: clean libft_clean bonus_clean
 
-all_fclean: fclean libft_fclean
+all_fclean: fclean libft_fclean bonus_fclean
 
 all_re: libft_re bonus_re re
 	@echo "${CYAN}Re-ed ${NAME}${NC}"
 
-re: fclean all
 
-norminette:
-
-.PHONY: all clean fclean re libft_re libft_all libft_fclean libft_clean all_clean all_fclean
+.PHONY: all clean fclean re libft_re libft_all libft_fclean libft_clean all_clean all_fclean bonus bonus_clean bonus_fclean bonus_re
