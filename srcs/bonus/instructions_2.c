@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:30:13 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/22 11:34:36 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/22 11:35:11 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,26 @@
 /*
 	First element becomes last
 */
-int	rotate(t_stack *stack, t_push_swap *vars)
+int	check_rotate(t_stack *stack, t_push_swap *vars)
 {
 	if (!stack || !(stack->head) || !vars)
 		return (1);
 	if (stack->len == 1)
 		return (0);
 	stack->head = stack->head->next;
-	if (vars->stack_a == stack)
-		return (new_instruct(ROTATE_A, vars));
-	else
-		return (new_instruct(ROTATE_B, vars));
+	return (0);
 }
 
 /*
 	Last element becomes first
 */
-int	rev_rotate(t_stack *stack, t_push_swap *vars)
+int	check_rev_rotate(t_stack *stack, t_push_swap *vars)
 {
 	if (!stack || !(stack->head) || !vars)
 		return (1);
 	if (stack->len == 1)
 		return (0);
 	stack->head = stack->head->prev;
-	if (vars->stack_a == stack)
-		return (new_instruct(REV_ROTATE_A, vars));
-	else
-		return (new_instruct(REV_ROTATE_B, vars));
-}
-
-int	push_bottom(t_stack *receiver, t_stack *sender, t_push_swap *vars)
-{
-	if (push(receiver, sender, vars) == 1)
-		return (1);
-	if (rotate(receiver, vars) == 1)
-		return (1);
 	return (0);
 }
 

@@ -1,36 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_checker_lst.c                                 :+:      :+:    :+:   */
+/*   memory_cleaning.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:38:02 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 17:25:10 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/22 11:40:43 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_checker.h"
 
-void	free_checker_lst(t_list *head)
+void	ft_free_circular_nodes(t_node *node)
 {
-	t_list	*ptr;
-	t_list	*tmp;
+	t_node	*tmp;
+	t_node	*ptr;
 
-	if (!head)
+	if (!node)
 		return ;
-	ptr = head;
-	while (ptr != NULL)
+	ptr = node->next;
+	while (ptr != node)
 	{
 		tmp = ptr;
-		if (tmp->content)
-		{
-			free(tmp->content);
-			tmp->content = NULL;
-		}
 		ptr = ptr->next;
 		free(tmp);
 		tmp = NULL;
 	}
-	head = NULL;
+	free(node);
+	node = NULL;
+}
+
+void	ft_free_stack(t_instruct *stack)
+{
+	t_instruct	*ptr;
+	t_instruct	*tmp;
+
+	if (!stack)
+		return ;
+	ptr = stack;
+	while (ptr != NULL)
+	{
+		tmp = ptr;
+		ptr = ptr->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	stack = NULL;
+}
+
+void	memory_cleaning(t_push_swap *vars)
+{
+	if (!vars)
+		return ;
+	ft_free_circular_nodes(vars->stack_a->head);
+	ft_free_circular_nodes(vars->stack_b->head);
+	ft_free_stack(vars->insts);
 }

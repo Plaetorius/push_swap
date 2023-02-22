@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/21 18:41:52 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/22 12:05:09 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,12 @@ BONUS			=	$(addsuffix ${FTSRCS},	\
 					main	\
 					parsing_1	\
 					parsing_2	\
-					free_checker_lst	\
+					converting	\
+					execution	\
+					init		\
+					instructions_1	\
+					instructions_2	\
+					memory_cleaning	\
 					))	\
 					srcs/programme/atoi_def.c
 BONUSOBJS		= ${BONUS:.c=.o}

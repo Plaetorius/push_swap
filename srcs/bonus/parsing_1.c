@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 18:31:20 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:46:28 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	fill_table(int ac, char **av, int **table)
 			if (get_arg_number(strs[j], table, &current) == 1)
 				return (ft_free_strs(strs), 1);
 			j++;
-		}
+		}		
 		i++;
 		ft_free_strs(strs);
 	}
@@ -101,7 +101,7 @@ static int	check_doubles(int ac, int *table)
 	return (0);
 }
 
-int	*parsing_to_stack(int ac, char **av, t_stack *stack)
+int	*parsing(int ac, char **av, t_push_swap *vars)
 {
 	int	*tab;
 	int	len;
@@ -114,7 +114,7 @@ int	*parsing_to_stack(int ac, char **av, t_stack *stack)
 	tab = ft_calloc(sizeof(int), len);
 	if (!tab)
 		return (NULL);
-	stack->len = len;
+	vars->stack_a->len = len;
 	if (fill_table(ac, av, &tab))
 		return (free(tab), NULL);
 	if (check_doubles(ac, tab) == 1)
