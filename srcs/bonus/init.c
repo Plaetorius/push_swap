@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:25:10 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/22 12:13:23 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/22 12:35:21 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	ft_node_endings(t_node *elem, t_node *next, t_node *prev)
 		prev->next = elem;
 	}
 }
-
 
 t_node	*ft_node_new(int val, t_node *next, t_node *prev, int ind)
 {
