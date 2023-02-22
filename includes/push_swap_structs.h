@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:40:41 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 15:50:58 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/22 17:18:13 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_node
 	int					ind;
 }	t_node;
 
-typedef struct t_stack
+typedef struct s_stack
 {
 	t_node				*head;
 	size_t				len;
