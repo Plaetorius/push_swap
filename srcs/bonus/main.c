@@ -88,7 +88,7 @@ int	main(int ac, char **av)
 	vars.stack_b = &stack_b;
 	vars.insts = NULL;
 	if (ac == 1)
-		return (write(2, "Error\n", 6), EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	if (get_instructs(&vars))
 		return (memory_cleaning(&vars), EXIT_FAILURE);
 	if (init(av, ac, &vars) == 1)

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:25:10 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/23 12:23:17 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:51:03 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	init(char **av, int ac, t_push_swap *vars)
 	if (!table)
 		return (1);
 	if (ft_is_int_tab_sorted(table, vars->stack_a->len) && vars->insts == NULL)
-		return (write(1, "OK\n", 3), 1);
+		return (free(table), write(1, "OK\n", 3), 1);
 	node = convert(table, vars->stack_a->len, vars);
 	if (!node)
 		return (free(table), 1);

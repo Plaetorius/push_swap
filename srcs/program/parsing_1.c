@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/23 12:41:34 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/23 14:03:23 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	numbers_counter(char *arg, int *numbers_count)
 		while (('0' <= strs[i][j] && strs[i][j] <= '9' && strs[i][j]))
 			j++;
 		if (strs[i][j] != '\0')
-			return (1);
+			return (ft_free_strs(strs), 1);
 		(*numbers_count)++;
 		i++;
 	}
@@ -113,14 +113,14 @@ int	*parsing(int ac, char **av, t_push_swap *vars)
 	if (ac == 1)
 		return (NULL);
 	len = arguments_checker(ac, av);
-	if (len == -1)
+	if (len == -1 || len == 0)
 		return (write(2, "Error\n", 6), NULL);
 	tab = ft_calloc(sizeof(int), len);
 	if (!tab)
 		return (NULL);
 	vars->stack_a->len = len;
 	if (fill_table(ac, av, &tab))
-		return (free(tab), NULL);
+		return (free(tab), write(2, "Error\n", 6), NULL);
 	if (check_doubles(len, tab) == 1)
 		return (free(tab), write(2, "Error\n", 6), NULL);
 	return (tab);
