@@ -6,13 +6,13 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2023/02/22 13:03:46 by tgernez          ###   ########.fr        #
+#    Updated: 2023/02/23 11:58:08 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 FTSRCS			= .c
-DIRSRCS 		= srcs/programme/
+DIRSRCS 		= srcs/program/
 SRCS 			=	$(addsuffix ${FTSRCS},	\
 					$(addprefix ${DIRSRCS},	\
 					main	\
@@ -45,7 +45,7 @@ BONUS			=	$(addsuffix ${FTSRCS},	\
 					instructions_2	\
 					memory_cleaning	\
 					))	\
-					srcs/programme/atoi_def.c
+					srcs/program/atoi_def.c
 BONUSOBJS		= ${BONUS:.c=.o}
 INCLUDES		= -Iincludes
 LIBFTDIR		= libft
@@ -125,7 +125,7 @@ all_clean: clean libft_clean bonus_clean
 
 all_fclean: fclean libft_fclean bonus_fclean
 
-all_re: libft_re bonus_re re
+all_re: libft_re re
 	@echo "${CYAN}Re-ed ${NAME}${NC}"
 
 

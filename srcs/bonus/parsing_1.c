@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 16:46:28 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/23 12:41:34 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,27 @@ static int	fill_table(int ac, char **av, int **table)
 			if (get_arg_number(strs[j], table, &current) == 1)
 				return (ft_free_strs(strs), 1);
 			j++;
-		}		
+		}
 		i++;
 		ft_free_strs(strs);
 	}
 	return (0);
 }
 
-static int	check_doubles(int ac, int *table)
+static int	check_doubles(int len, int *table)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < ac - 2)
+	if (!table)
+		return (1);
+	if (len > 1 && table[0] == table[1])
+		return (1);
+	while (i < len - 1)
 	{
 		j = i + 1;
-		while (j < ac - 1)
+		while (j < len)
 		{
 			if (table[i] == table[j])
 				return (1);
@@ -110,14 +114,14 @@ int	*parsing(int ac, char **av, t_push_swap *vars)
 		return (NULL);
 	len = arguments_checker(ac, av);
 	if (len == -1)
-		return (NULL);
+		return (write(2, "Error\n", 6), NULL);
 	tab = ft_calloc(sizeof(int), len);
 	if (!tab)
 		return (NULL);
 	vars->stack_a->len = len;
 	if (fill_table(ac, av, &tab))
 		return (free(tab), NULL);
-	if (check_doubles(ac, tab) == 1)
-		return (free(tab), NULL);
+	if (check_doubles(len, tab) == 1)
+		return (free(tab), write(2, "Error\n", 6), NULL);
 	return (tab);
 }
