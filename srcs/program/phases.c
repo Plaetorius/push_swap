@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:02:22 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/21 17:43:50 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:50:49 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	phase_1(char **av, int ac, t_push_swap *vars)
 		return (1);
 	table = parsing(ac, av, vars);
 	if (!table)
-		return (1);
+		return (write(2, "Error\n", 6), 1);
 	node = convert(table, vars->stack_a->len, vars);
 	if (!node)
 		return (free(table), 1);

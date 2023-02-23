@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:45:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/02/20 16:46:28 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:50:41 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	fill_table(int ac, char **av, int **table)
 			if (get_arg_number(strs[j], table, &current) == 1)
 				return (ft_free_strs(strs), 1);
 			j++;
-		}		
+		}
 		i++;
 		ft_free_strs(strs);
 	}
